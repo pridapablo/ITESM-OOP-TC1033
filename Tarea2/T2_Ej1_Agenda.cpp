@@ -30,44 +30,47 @@ agregarlos a la agenda (lista de máximo 100 contactos). Modifica al menos */
 
 #include <iostream>
 #include <string>
-using namespace std;
 
-struct Contacto
+struct Contacto //Inciso A
 {
-    string nombre;
-    string mail;
+    std::string nombre;
+    std::string direccion;
+    std::string telefono;
+    std::string mail;
+    std::string ig;
+    std::string tiktok;
+    std::string años;
+    std::string relacion;    
 };
 
-void agregarContacto(Contacto* contacto, Contacto *lista, int posicion)
+void agregarContacto(Contacto *contacto, Contacto *lista, int *posicion) // Inciso B
 {
     lista[*posicion] = *contacto;
     (*posicion)++;
 }
 
-int buscarNombre(Contacto *lista,int size, string nombre)
+int buscarNombre(Contacto *lista,int size, std::string nombre) // Inciso C
 {
     for(int i = 0; i < size; i++)
     {
-        if (lista[i].nombre == nombre);
+        if (lista[i].nombre == nombre)
         {
-            return i;
+            return i; // regresa la posición (como entero) en la que se encontró el nombre del contacto
         }
     }
     return -1;
 }
 
-void modificarContacto(Contacto* lista, int size, string nombre, string nuevomail)
+int buscarMail(Contacto *lista,int size, std::string mail) // Inciso C
 {
-    buscarNombre(lista,size,nombre);
-    if (pos != -1)
+    for(int i = 0; i < size; i++)
     {
-        lista[pos].mail = nuevomail
+        if (lista[i].mail == mail)
+        {
+            return i; // regresa la posición (como entero) en la que se encontró el mail del contacto
+        }
     }
-    else
-    {
-        cout << "contacto no encontrado \n"
-
-    }
+    return -1;
 }
 
 int main()
@@ -87,11 +90,9 @@ int main()
 
     agregarContacto(&juanito, listaDeContactos, &numero_elementos_agregados);
     agregarContacto(&pedrito, listaDeContactos, &numero_elementos_agregados);
-    cout << numero_elementos_agregados;
+    std::cout << numero_elementos_agregados << "\n";
 
-    cout << buscarNombre(listaDeContactos, size_contactos, "Pedrito");
-
-    modificarContacto(listaDeContactos,size_contactos, "Pedrito", "pedrito@tec.mx");
+    std::cout << buscarNombre(listaDeContactos, size_contactos, "Pedrito \n");
     
-    cout << pedrito.mail << endl;
+    std::cout << pedrito.mail << std::endl;
 }
