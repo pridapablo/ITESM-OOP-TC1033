@@ -43,17 +43,17 @@ struct Contacto //Inciso A
     std::string relacion;    
 };
 
-void agregarContacto(Contacto *contacto, Contacto *lista, int *posicion) // Inciso B
+void agregarContacto(Contacto *contacto, Contacto **lista, int *posicion) // Inciso B
 {
-    lista[*posicion] = *contacto;
+    lista[*posicion] = contacto;
     (*posicion)++;
 }
 
-int buscarNombre(Contacto *lista,int size, std::string nombre) // Inciso C
+int buscarNombre(Contacto **lista,int size, std::string nombre) // Inciso C
 {
     for(int i = 0; i < size; i++)
     {
-        if (lista[i].nombre == nombre)
+        if (lista[i]->nombre == nombre)
         {
             return i; // regresa la posición (como entero) en la que se encontró el nombre del contacto
         }
@@ -73,12 +73,25 @@ int buscarMail(Contacto *lista,int size, std::string mail) // Inciso C
     return -1;
 }
 
+void modificarContacto(Contacto** lista, int size, std::string nombre, std::string nuevoMail)
+{
+    int pos = buscarNombre(lista,size,nombre);
+    if (pos != -1)
+    {
+        lista[pos]->mail = nuevoMail;
+    }
+    else
+    {
+        std::cout << "contacto no encontrado \n";
+    }
+}
+
 int main()
 {
-    Contacto* listaDeContactos;
+    Contacto** listaDeContactos;
     int size_contactos = 100;
     int numero_elementos_agregados = 0;
-    listaDeContactos = new Contacto[size_contactos];
+    listaDeContactos = new Contacto*[size_contactos];
     
     Contacto pedrito; //instancia
     pedrito.nombre = "Pedrito";
@@ -96,3 +109,5 @@ int main()
     
     std::cout << pedrito.mail << std::endl;
 }
+
+//segmentation fault = no tener un new o un delete para un apuntador que estamos usando
