@@ -21,26 +21,28 @@ donde se encuentra el contacto
 D. Crea una función para buscar un contacto en la lista (busca por correo electrónico) 
 e imprime los datos del contacto encontrado 
 
-/NO HACER: E. Crea una función para modificar los datos de un contacto (sólo se puede modificar 
+E. Crea una función para modificar los datos de un contacto (sólo se puede modificar 
 el correo electrónico del contacto). Utiliza la función anterior buscar para 
 identificar a quién quieres modificar 
 
 F. Para probar tu programa deberás crear al menos 5 instancias de Contactos y 
-agregarlos a la agenda (lista de máximo 100 contactos). Modifica al menos */
+agregarlos a la agenda (lista de máximo 100 contactos). Modifica al menos 1*/
 
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 struct Contacto //Inciso A
 {
-    std::string nombre;
-    std::string direccion;
-    std::string telefono;
-    std::string mail;
-    std::string ig;
-    std::string tiktok;
-    std::string años;
-    std::string relacion;    
+    string nombre;
+    string direccion;
+    string telefono;
+    string mail;
+    string ig;
+    string tiktok;
+    string anios;
+    string relacion;    
 };
 
 void agregarContacto(Contacto *contacto, Contacto **lista, int *posicion) // Inciso B
@@ -49,7 +51,7 @@ void agregarContacto(Contacto *contacto, Contacto **lista, int *posicion) // Inc
     (*posicion)++;
 }
 
-int buscarNombre(Contacto **lista,int size, std::string nombre) // Inciso C
+int buscarNombre(Contacto **lista,int size, string nombre) // Inciso C
 {
     for(int i = 0; i < size; i++)
     {
@@ -61,11 +63,11 @@ int buscarNombre(Contacto **lista,int size, std::string nombre) // Inciso C
     return -1;
 }
 
-int buscarMail(Contacto *lista,int size, std::string mail) // Inciso C
+int buscarMail(Contacto **lista,int size, string mail) // Inciso D
 {
     for(int i = 0; i < size; i++)
     {
-        if (lista[i].mail == mail)
+        if (lista[i]->mail == mail)
         {
             return i; // regresa la posición (como entero) en la que se encontró el mail del contacto
         }
@@ -73,7 +75,7 @@ int buscarMail(Contacto *lista,int size, std::string mail) // Inciso C
     return -1;
 }
 
-void modificarContacto(Contacto** lista, int size, std::string nombre, std::string nuevoMail)
+void modificarContacto(Contacto** lista, int size, string nombre, string nuevoMail) //Inciso E
 {
     int pos = buscarNombre(lista,size,nombre);
     if (pos != -1)
@@ -82,7 +84,7 @@ void modificarContacto(Contacto** lista, int size, std::string nombre, std::stri
     }
     else
     {
-        std::cout << "contacto no encontrado \n";
+        cout << "contacto no encontrado \n";
     }
 }
 
@@ -96,18 +98,68 @@ int main()
     Contacto pedrito; //instancia
     pedrito.nombre = "Pedrito";
     pedrito.mail = "pedrito@itesm.mx";
+    pedrito.direccion = "Fuentes de Ortiz";
+    pedrito.telefono = "+52 55 8649 7343";
+    pedrito.ig = "@pedrigod";
+    pedrito.tiktok = "pedrigod";
+    pedrito.anios = "2";
+    pedrito.relacion = "Hermano";  
 
     Contacto juanito; //instancia
     juanito.nombre = "Juanito";
     juanito.mail = "juanito@itesm.mx";
+    juanito.direccion = "Calle 13";
+    juanito.telefono = "+52 54 8646 7345";
+    juanito.ig = "@juanitofuchibol";
+    juanito.tiktok = "juanitofuchibol";
+    juanito.anios = "3";
+    juanito.relacion = "Primo";  
+
+    Contacto emigdio;
+    emigdio.nombre = "Emigdio";
+    emigdio.mail = "emigdio@itesm.mx";
+    emigdio.direccion = "Bendita Fe";
+    emigdio.telefono = "+52 55 1999 1223";
+    emigdio.ig = "@emigdio134";
+    emigdio.tiktok = "emigdio134";
+    emigdio.anios = "7";
+    emigdio.relacion = "Viejito";  
+    
+    Contacto oswa;
+    oswa.nombre = "Oswa";
+    oswa.mail = "oswa@itesm.mx";
+    oswa.direccion = "Azcapolejos";
+    oswa.telefono = "+52 55 1123 1453";
+    oswa.ig = "@oswaldoontas";
+    oswa.tiktok = "oswaldoontas";
+    oswa.anios = "1";
+    oswa.relacion = "Cuate";  
+
+    Contacto victoria;
+    victoria.nombre = "Ana Vic";
+    victoria.mail = "ana_vic@itesm.mx";
+    victoria.direccion = "Una galaxia muy lejana";
+    victoria.telefono = "+64 77 2845 9240";
+    victoria.ig = "@Anitalavalatina";
+    victoria.tiktok = "Anitalavalatina";
+    victoria.anios = "6";
+    victoria.relacion = "Amiga";
 
     agregarContacto(&juanito, listaDeContactos, &numero_elementos_agregados);
     agregarContacto(&pedrito, listaDeContactos, &numero_elementos_agregados);
-    std::cout << numero_elementos_agregados << "\n";
+    agregarContacto(&emigdio, listaDeContactos, &numero_elementos_agregados);
+    agregarContacto(&oswa, listaDeContactos, &numero_elementos_agregados);
+    agregarContacto(&victoria, listaDeContactos, &numero_elementos_agregados);
 
-    std::cout << buscarNombre(listaDeContactos, size_contactos, "Pedrito \n");
-    
-    std::cout << pedrito.mail << std::endl;
+    cout << "Existen " << numero_elementos_agregados << " contactos agregados a la agenda" << "\n";
+
+    modificarContacto(listaDeContactos, size_contactos, "Ana Vic", "ana_vic@tec.mx");
+    modificarContacto(listaDeContactos, size_contactos, "Oswa", "oswa@tec.mx");
+
+    cout << "Se han editado los mails siguientes: ";
+
+    cout << victoria.mail << endl;
+    cout << oswa.mail << endl;
 }
 
 //segmentation fault = no tener un new o un delete para un apuntador que estamos usando
