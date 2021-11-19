@@ -35,7 +35,7 @@ struct Cliente //Inciso A
 };
 
 // Incisos B y C: funciones departamentos
-void frutas_y_verduras(std::string *nombre, int *gasto_cliente)
+void frutas_y_verduras(std::string *nombre, int *gasto_cliente, int *ganancia)
 {
     int total;
     std::cout << "Hola " << *nombre << ", bienvenido \n";
@@ -43,8 +43,9 @@ void frutas_y_verduras(std::string *nombre, int *gasto_cliente)
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en frutas y verduras \n";
     (*gasto_cliente) += total;
+    (*ganancia) += total;
 }
-void carnes_y_congelados(std::string *nombre, int *gasto_cliente)
+void carnes_y_congelados(std::string *nombre, int *gasto_cliente, int *ganancia)
 {
     int total;
     std::cout << "Hola " << *nombre << ", bienvenido \n";
@@ -52,8 +53,9 @@ void carnes_y_congelados(std::string *nombre, int *gasto_cliente)
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en carnes y congelados \n";
     (*gasto_cliente) += total;
+    (*ganancia) += total;
 }
-void vinos_y_licores(std::string *nombre, int *gasto_cliente)
+void vinos_y_licores(std::string *nombre, int *gasto_cliente, int *ganancia)
 {
     int total;
     std::cout << "Hola " << *nombre << ", bienvenido \n";
@@ -61,8 +63,9 @@ void vinos_y_licores(std::string *nombre, int *gasto_cliente)
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en vinos y licores \n";
     (*gasto_cliente) += total;
+    (*ganancia) += total;
 }
-void dulceria(std::string *nombre, int *gasto_cliente)
+void dulceria(std::string *nombre, int *gasto_cliente, int *ganancia)
 {
     int total;
     std::cout << "Hola " << *nombre << ", bienvenido \n";
@@ -70,8 +73,9 @@ void dulceria(std::string *nombre, int *gasto_cliente)
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en dulcería \n";
     (*gasto_cliente) += total;
+    (*ganancia) += total;
 }
-void articulos_de_limpieza(std::string *nombre, int *gasto_cliente)
+void articulos_de_limpieza(std::string *nombre, int *gasto_cliente, int *ganancia)
 {
     int total;
     std::cout << "Hola " << *nombre << ", bienvenido \n";
@@ -79,13 +83,13 @@ void articulos_de_limpieza(std::string *nombre, int *gasto_cliente)
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en artículos de limpieza \n";
     (*gasto_cliente) += total;
+    (*ganancia) += total;
 }
 
 // Inciso E: función ganancia 
-void ganancia_del_dia(Cliente **lista)
+void ganancia_del_dia(/*Contacto** lista,*/ int *ganancia);
 {
-    int ganancia = 1;
-    std::cout << "El día de hoy, el super ganó $" << ganancia << "\n";
+    std::cout << "El día de hoy, el super ganó $" << *ganancia << "\n";
 }
 
 int main ()
@@ -120,10 +124,12 @@ int main ()
     lorenita.teléfono = "+52 55 2967 3542";
     lorenita.total_gastado = 0;
 
-    frutas_y_verduras(&juanito.nombre, &juanito.total_gastado);
-    frutas_y_verduras(&lorenita.nombre, &lorenita.total_gastado);
+    int ganancia_super = 0;
 
-    ganancia_del_dia(lista_de_clientes);
+    frutas_y_verduras(&juanito.nombre, &juanito.total_gastado, &ganancia_super);
+    frutas_y_verduras(&lorenita.nombre, &lorenita.total_gastado, &ganancia_super);
+
+    ganancia_del_dia(/*Contacto** lista,*/ &ganancia_super);
 
     //gasto(lista_de_clientes,size_clientes);
 

@@ -161,5 +161,3 @@ int main()
     cout << victoria.mail << endl;
     cout << oswa.mail << endl;
 }
-
-//segmentation fault = no tener un new o un delete para un apuntador que estamos usando
