@@ -4,6 +4,39 @@ también son primos. Ej. El número 197 es circular primo pq es primo y su prime
 971 también es primo y su segunda rotación 719 también es primo. */
 
 #include <iostream>
+#include <string>
+#include <math.h>
+#include <cmath>
+
+
+using namespace std;
+
+int rotar(int *x)
+{
+    string wow = to_string(*x);
+    int digitos = wow.length();
+    int digito_ultimo = 0;
+
+    int rot = 0;
+
+
+    while (x > 0)
+    {
+        if (0 < *x && *x < 10)
+        {
+          rot = *x;
+          break;
+        }
+
+        digito_ultimo = *x%10;
+        rot = (*x - digito_ultimo) / 10;
+        rot = rot + (digito_ultimo*(pow(10,digitos)));
+        break;
+        }
+    }
+
+    return rot;
+}
 
 bool es_circular_primo(int *num)
 {
