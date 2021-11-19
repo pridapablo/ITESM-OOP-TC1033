@@ -35,7 +35,7 @@ void venderBoletos(Cliente **lista, int size, int *numVendidos, Persona* p, stri
     }
     else
     {
-        if (p->presupuesto <= precio)
+        if (p->presupuesto >= precio)
         {
             Fecha fechaCompra;
             fechaCompra.dia = 17;
@@ -87,4 +87,11 @@ int main()
     venderBoletos(listaClientes, size, &clientesRegistrados, &juanito, "VIP", 200);
 
     imprimirClientesAtendidos(listaClientes, size, clientesRegistrados);
+    
+    for (int i = 0;  i < clientesRegistrados; i++)
+    {
+        delete listaClientes[i]; //libero cada uno de los elementos de la lista
+    }
+
+    delete [] listaClientes; //los deletes deben estar en el mismo scope que sus news
 }

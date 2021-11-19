@@ -82,50 +82,55 @@ void articulos_de_limpieza(std::string *nombre, int *gasto_cliente)
 }
 
 // Inciso E: función ganancia 
-void ganancia_del_dia(Cliente **lista)
+void ganancia_del_dia(Cliente **lista, int no_elementos)
 {
-    int ganancia = 1;
-    std::cout << "El día de hoy, el super ganó $" << ganancia << "\n";
+    int j = 0;
+    j = **lista->total_gastado;
+    
+    std::cout << "El día de hoy, el super ganó $" << j << "\n";
 }
 
 int main ()
 {
     Cliente** lista_de_clientes; 
     int size_clientes = 10;
-    int numero_elementos_agregados = 0;
-    lista_de_clientes = new Cliente*[size_clientes];// Inciso E: arreglo con clientes
+    int numero_clientes_agregados = 0;
+    lista_de_clientes = new Cliente*[size_clientes]; // Inciso E: arreglo con clientes
 
     Cliente juanito; //instancia
     juanito.nombre = "Juanito";
     juanito.teléfono = "+52 55 2967 3642";
     juanito.total_gastado = 0;
+    numero_clientes_agregados = numero_clientes_agregados + 1;
 
     Cliente magdita;
     magdita.nombre = "Magdita";
     magdita.teléfono = "+52 55 2967 3042";
     magdita.total_gastado = 0;
-    
+    numero_clientes_agregados = numero_clientes_agregados + 1;  
+
     Cliente pedrito; 
     pedrito.nombre = "Pedrito";
     pedrito.teléfono = "+52 55 2267 3642";
     pedrito.total_gastado = 0;
+    numero_clientes_agregados = numero_clientes_agregados + 1;
 
     Cliente pablito;
     pablito.nombre = "Pablito";
     pablito.teléfono = "+52 55 2957 3642";
     pablito.total_gastado = 0;
+    numero_clientes_agregados = numero_clientes_agregados + 1;
 
     Cliente lorenita;
     lorenita.nombre = "Lorenita";
     lorenita.teléfono = "+52 55 2967 3542";
     lorenita.total_gastado = 0;
+    numero_clientes_agregados = numero_clientes_agregados + 1;
 
     frutas_y_verduras(&juanito.nombre, &juanito.total_gastado);
     frutas_y_verduras(&lorenita.nombre, &lorenita.total_gastado);
 
-    ganancia_del_dia(lista_de_clientes);
-
-    //gasto(lista_de_clientes,size_clientes);
+    ganancia_del_dia(lista_de_clientes, numero_clientes_agregados);
 
     return 0;
 }
