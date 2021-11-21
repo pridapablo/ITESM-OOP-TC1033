@@ -160,4 +160,6 @@ int main()
 
     cout << victoria.mail << endl;
     cout << oswa.mail << endl;
+
+    delete [] listaDeContactos;
 }

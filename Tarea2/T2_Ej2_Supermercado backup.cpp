@@ -86,11 +86,8 @@ void articulos_de_limpieza(std::string *nombre, int *gasto_cliente, int *gananci
     (*ganancia) += total;
 }
 
-// Inciso E: función ganancia 
-void ganancia_del_dia(/*Contacto** lista,*/ int *ganancia);
-{
-    std::cout << "El día de hoy, el super ganó $" << *ganancia << "\n";
-}
+// Inciso E: gasto por cliente
+
 
 int main ()
 {

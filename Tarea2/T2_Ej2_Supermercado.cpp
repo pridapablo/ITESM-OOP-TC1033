@@ -81,14 +81,23 @@ void articulos_de_limpieza(std::string *nombre, int *gasto_cliente)
     (*gasto_cliente) += total;
 }
 
-// Inciso E: función ganancia 
-void ganancia_del_dia(Cliente **lista, int no_elementos)
+void todos_los_deptos(Cliente *cliente, int *gasto_cliente, Cliente **lista)
 {
-    int j = 0;
-    j = **lista->total_gastado;
-    
-    std::cout << "El día de hoy, el super ganó $" << j << "\n";
+    frutas_y_verduras((*cliente).nombre, (*cliente.total_gastado));
 }
+
+// Inciso E: función ganancia 
+// void ganancia_del_dia(Cliente **lista, int *no_elementos)
+// {
+//     int g = 0;
+
+//     for (int i = *no_elementos - 1; i >= 0; i--)
+//     {
+//         g = lista[0][i].total_gastado + g;
+//     }
+    
+//     std::cout << "El día de hoy, el super ganó $" << g << "\n";
+// }
 
 int main ()
 {
@@ -127,10 +136,13 @@ int main ()
     lorenita.total_gastado = 0;
     numero_clientes_agregados = numero_clientes_agregados + 1;
 
-    frutas_y_verduras(&juanito.nombre, &juanito.total_gastado);
-    frutas_y_verduras(&lorenita.nombre, &lorenita.total_gastado);
+    //frutas_y_verduras(&juanito.nombre, &juanito.total_gastado);
 
-    ganancia_del_dia(lista_de_clientes, numero_clientes_agregados);
+    todos_los_deptos(&juanito, &juanito.total_gastado, lista_de_clientes);
+
+ 
+
+    // ganancia_del_dia(lista_de_clientes, &numero_clientes_agregados);
 
     return 0;
 }

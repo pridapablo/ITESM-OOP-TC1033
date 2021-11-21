@@ -4,58 +4,69 @@ también son primos. Ej. El número 197 es circular primo pq es primo y su prime
 971 también es primo y su segunda rotación 719 también es primo. */
 
 #include <iostream>
-#include <string>
 #include <math.h>
-#include <cmath>
 
-
-using namespace std;
-
-int rotar(int *x)
+bool isPrime(int number)
 {
-    string wow = to_string(*x);
-    int digitos = wow.length();
-    int digito_ultimo = 0;
-
-    int rot = 0;
-
-
-    while (x > 0)
+    if ((number == 0) || (number == 1))
     {
-        if (0 < *x && *x < 10)
+        return false;
+    }
+    else if (number == 2)
+    {
+        return true;
+    }
+    else
+    {
+        for (int i = 2; i < (number); ++i) 
         {
-          rot = *x;
-          break;
+            if ((number % i) == 0)
+            {
+                return false;
+                continue;
+            }
         }
-
-        digito_ultimo = *x%10;
-        rot = (*x - digito_ultimo) / 10;
-        rot = rot + (digito_ultimo*(pow(10,digitos)));
-        break;
-        }
+        return true;
     }
-
-    return rot;
 }
-
-bool es_circular_primo(int *num)
+int countDigits(int number)
 {
-    ;
-}
-
-int main ()
-{
-    int x = 197;
-
-    if (es_circular_primo(&x))
+    int numberOfDigits = 0;
+    while (number > 0)
     {
-        return 1;
-        std::cout << "El número " << x << " es circular primo";
+        numberOfDigits++;
+        number/=10;
     }
-
+    return numberOfDigits;
+}
+bool isCircularPrime(int number)
+{
+    int pot = countDigits(number)-1;
+    int aux = pow(10,pot);
+    int countCircularPrimes = 0;
+    for (int i=0; i < countDigits(number); i++)
+    {
+        int dig = number%10;
+        number /= 10;
+        int base = aux*dig;
+        number += base;
+        if (isPrime(number) == true) 
+        {
+           countCircularPrimes++; 
+        }
+    }
+    if (countCircularPrimes == countDigits(number)) //Todas las rotaciones son primas
+    {
+        std::cout << number << " es circular primo. \n";
+        return true;
+    }
     else 
     {
-        return 0;
-        std::cout << "El número " << x << " no es circular primo";
+        std::cout << number << " no es circular primo. \n";
+        return false;
     }
+}
+int main()
+{
+    return isCircularPrime(197);
 }
