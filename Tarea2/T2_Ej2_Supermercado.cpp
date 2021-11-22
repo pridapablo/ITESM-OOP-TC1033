@@ -157,5 +157,13 @@ int main ()
 
     gananciaDia(lista_de_clientes,numero_clientes_agregados);
 
+    delete juanito.total_gastado;
+    delete magdita.total_gastado;
+    delete pedrito.total_gastado;
+    delete pablito.total_gastado;
+    delete lorenita.total_gastado;
+    
+    delete [] lista_de_clientes;
+
     return 0;
 }
