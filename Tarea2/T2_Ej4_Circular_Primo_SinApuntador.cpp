@@ -41,32 +41,41 @@ int countDigits(int number)
 }
 bool isCircularPrime(int number)
 {
-    int expo = countDigits(number)-1;
-    int countCircularPrimes = 0;
-    for (int i=0; i < countDigits(number); i++)
-    {
-        int lastDigit = number%10;
-        number /= 10;
-        int base = pow(10,expo)*lastDigit;
-        number += base;
-        if (isPrime(number) == true) 
-        {
-           countCircularPrimes++; 
-        }
-    }
-    if (countCircularPrimes == countDigits(number)) //Todas las rotaciones son primas
-    {
-        std::cout << number << " es circular primo. \n";
-        return true;
-    }
-    else 
+    if (isPrime(number) == false)
     {
         std::cout << number << " no es circular primo. \n";
         return false;
     }
+    else
+    {
+        int expo = countDigits(number)-1;
+        int countCircularPrimes = 0;
+        for (int i=0; i < countDigits(number); i++)
+        {
+            int lastDigit = number%10;
+            number /= 10;
+            int base = pow(10,expo)*lastDigit;
+            number += base;
+            if (isPrime(number) == true) 
+            {
+            countCircularPrimes++; 
+            }
+        }
+        if (countCircularPrimes == countDigits(number)) //Todas las rotaciones son primas
+        {
+            std::cout << number << " es circular primo. \n";
+            return true;
+        }
+        else 
+        {
+            std::cout << number << " no es circular primo. \n";
+            return false;
+        }
+    }
 }
+
 int main()
 {
-    int x = 197;
+    int x = 991;
     return isCircularPrime(x);
 }

@@ -38,28 +38,36 @@ int countDigits(int number)
 }
 bool isCircularPrime(int number)
 {
-    int expo = countDigits(number)-1;
-    int countCircularPrimes = 0;
-    for (int i=0; i < countDigits(number); i++)
+    if (isPrime(number) == false)
     {
-        int lastDigit = number%10;
-        number /= 10;
-        int base = pow(10,expo)*lastDigit;
-        number += base;
-        if (isPrime(number) == true) 
-        {
-           countCircularPrimes++; 
-        }
-    }
-    if (countCircularPrimes == countDigits(number)) //Todas las rotaciones son primas
-    {
-        //std::cout << number << " es circular primo. \n"; no queremos que se imprima
-        return true;
-    }
-    else 
-    {
-        //std::cout << number << " no es circular primo. \n"; no queremos que se imprima
+        // std::cout << number << " no es circular primo. \n";
         return false;
+    }
+    else
+    {
+        int expo = countDigits(number)-1;
+        int countCircularPrimes = 0;
+        for (int i=0; i < countDigits(number); i++)
+        {
+            int lastDigit = number%10;
+            number /= 10;
+            int base = pow(10,expo)*lastDigit;
+            number += base;
+            if (isPrime(number) == true) 
+            {
+            countCircularPrimes++; 
+            }
+        }
+        if (countCircularPrimes == countDigits(number)) //Todas las rotaciones son primas
+        {
+            //std::cout << number << " es circular primo. \n";
+            return true;
+        }
+        else 
+        {
+            //std::cout << number << " no es circular primo. \n";
+            return false;
+        }
     }
 }
 int circularPrimesInRange(int min, int max)
@@ -76,10 +84,9 @@ int circularPrimesInRange(int min, int max)
     return counter;
 }
 
-
 int main ()
 {
     int min = 0;
-    int max = 100;
+    int max = 100000;
     return circularPrimesInRange(min, max);
 }
