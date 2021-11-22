@@ -1,33 +1,85 @@
 // Programa que imprime cuántos números circulares primos hay debajo de 1000000 
 
 #include <iostream>
+#include <math.h>
 
-bool es_circular_primo(int *num)
+bool isPrime(int number)
 {
-    if (1==1)
+    if ((number == 0) || (number == 1))
+    {
+        return false;
+    }
+    else if (number == 2)
     {
         return true;
     }
-}
-
-void cont_circulares_primos(int *rang, int *cont)
-{
-    for (int i = 0 ; i <= *rang ; i++)
+    else
     {
-        if (es_circular_primo(&i))
+        for (int i = 2; i < (number); ++i) 
         {
-            *cont = *cont + 1;
+            if ((number % i) == 0)
+            {
+                return false;
+                continue;
+            }
         }
+        return true;
     }
 }
+int countDigits(int number)
+{
+    int numberOfDigits = 0;
+    while (number > 0)
+    {
+        numberOfDigits++;
+        number/=10;
+    }
+    return numberOfDigits;
+}
+bool isCircularPrime(int number)
+{
+    int expo = countDigits(number)-1;
+    int countCircularPrimes = 0;
+    for (int i=0; i < countDigits(number); i++)
+    {
+        int lastDigit = number%10;
+        number /= 10;
+        int base = pow(10,expo)*lastDigit;
+        number += base;
+        if (isPrime(number) == true) 
+        {
+           countCircularPrimes++; 
+        }
+    }
+    if (countCircularPrimes == countDigits(number)) //Todas las rotaciones son primas
+    {
+        //std::cout << number << " es circular primo. \n"; no queremos que se imprima
+        return true;
+    }
+    else 
+    {
+        //std::cout << number << " no es circular primo. \n"; no queremos que se imprima
+        return false;
+    }
+}
+int circularPrimesInRange(int min, int max)
+{
+    int counter = 0;
+    for(int i = min; i < max; i++)
+    {
+        if (isCircularPrime(i) == true)
+        {
+            counter++;
+        }
+    }
+    std::cout << "En el rango " << min << "-" <<max << " hay " << counter << " números circulares primos. \n";
+    return counter;
+}
+
 
 int main ()
 {
-    int cont = 0;
-    int rang = 1000000;
-
-    cont_circulares_primos(&rang, &cont);
-    
-    std::cout << "La cantidad de circulares primos debajo de " << rang << " es " << cont;
-    return cont;
+    int min = 0;
+    int max = 1000000;
+    return circularPrimesInRange(min, max);
 }

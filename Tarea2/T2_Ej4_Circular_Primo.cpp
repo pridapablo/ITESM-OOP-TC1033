@@ -41,14 +41,13 @@ int countDigits(int number)
 }
 bool isCircularPrime(int number)
 {
-    int pot = countDigits(number)-1;
-    int aux = pow(10,pot);
+    int expo = countDigits(number)-1;
     int countCircularPrimes = 0;
     for (int i=0; i < countDigits(number); i++)
     {
-        int dig = number%10;
+        int lastDigit = number%10;
         number /= 10;
-        int base = aux*dig;
+        int base = pow(10,expo)*lastDigit;
         number += base;
         if (isPrime(number) == true) 
         {
