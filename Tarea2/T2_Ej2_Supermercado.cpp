@@ -1,3 +1,5 @@
+// Nota: Realizado por Pablo Banzo, con apoyo colaborativo (no copia) de Pablo Bolio, Arantza, Shaul, Sabrina y Oswaldo. 
+
 /* Crea un programa que permita administrar cuánto gasta un cliente en diferentes 
 departamentos del supermercado.
 

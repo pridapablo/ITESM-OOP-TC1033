@@ -1,3 +1,5 @@
+// Nota: Realizado por Pablo Banzo, con apoyo colaborativo (no copia) de Pablo Bolio, Arantza, Shaul, Sabrina y Oswaldo. 
+
 /* Crea una agenda digital. El objetivo es que almacenes la información de tus contactos y 
 que realices operaciones como agregar, buscar y modificar contactos. La agenda tendrá un 
 máximo de 100 contactos (sólo las personas más cercanas a ti).
@@ -156,7 +158,7 @@ int main()
     modificarContacto(listaDeContactos, size_contactos, "Ana Vic", "ana_vic@tec.mx");
     modificarContacto(listaDeContactos, size_contactos, "Oswa", "oswa@tec.mx");
 
-    cout << "Se han editado los mails siguientes: ";
+    cout << "Se han editado los mails siguientes: \n";
 
     cout << victoria.mail << endl;
     cout << oswa.mail << endl;
