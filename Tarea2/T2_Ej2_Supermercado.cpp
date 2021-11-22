@@ -31,73 +31,89 @@ struct Cliente //Inciso A
 {
     std::string nombre;
     std::string teléfono;
-    int total_gastado;
+    int *total_gastado;
 };
 
+void nuevoCliente(Cliente* cliente, Cliente** lista, int* pos)
+{
+    lista[*pos] = cliente;
+    (*pos)++;
+}
+
 // Incisos B y C: funciones departamentos
-void frutas_y_verduras(std::string *nombre, int *gasto_cliente)
+void frutas_y_verduras(Cliente *cliente)
 {
     int total;
-    std::cout << "Hola " << *nombre << ", bienvenido \n";
+    std::cout << "Hola " << (cliente->nombre) << ", bienvenid@ \n";
     std::cout << "¿Cuánto gastaste en frutas y verduras? ";
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en frutas y verduras \n";
-    (*gasto_cliente) += total;
+    *(cliente->total_gastado) += total;
 }
-void carnes_y_congelados(std::string *nombre, int *gasto_cliente)
+void carnes_y_congelados(Cliente *cliente)
 {
     int total;
-    std::cout << "Hola " << *nombre << ", bienvenido \n";
+    std::cout << "Hola " << (cliente->nombre) << ", bienvenid@ \n";
     std::cout << "¿Cuánto gastaste en carnes y congelados? ";
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en carnes y congelados \n";
-    (*gasto_cliente) += total;
+    *(cliente->total_gastado) += total;
 }
-void vinos_y_licores(std::string *nombre, int *gasto_cliente)
+void vinos_y_licores(Cliente *cliente)
 {
     int total;
-    std::cout << "Hola " << *nombre << ", bienvenido \n";
+    std::cout << "Hola " << (cliente->nombre) << ", bienvenid@ \n";
     std::cout << "¿Cuánto gastaste en vinos y licores? ";
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en vinos y licores \n";
-    (*gasto_cliente) += total;
+    *(cliente->total_gastado) += total;
 }
-void dulceria(std::string *nombre, int *gasto_cliente)
+void dulceria(Cliente *cliente)
 {
     int total;
-    std::cout << "Hola " << *nombre << ", bienvenido \n";
+    std::cout << "Hola " << (cliente->nombre) << ", bienvenid@ \n";
     std::cout << "¿Cuánto gastaste en dulcería? ";
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en dulcería \n";
-    (*gasto_cliente) += total;
+    *(cliente->total_gastado) += total;
 }
-void articulos_de_limpieza(std::string *nombre, int *gasto_cliente)
+void articulos_de_limpieza(Cliente *cliente)
 {
     int total;
-    std::cout << "Hola " << *nombre << ", bienvenido \n";
+    std::cout << "Hola " << (cliente->nombre) << ", bienvenid@ \n";
     std::cout << "¿Cuánto gastaste en artículos de limpieza? ";
     std::cin >> total;
     std::cout << "Gracias por gastar " << total << " pesos en artículos de limpieza \n";
-    (*gasto_cliente) += total;
+    *(cliente->total_gastado) += total;
 }
 
-void todos_los_deptos(Cliente *cliente, int *gasto_cliente, Cliente **lista)
-{
-    frutas_y_verduras((*cliente).nombre, (*cliente.total_gastado));
+// Inciso E: gasto cliente
+void gasto(Cliente** lista, int size)
+{ 
+    for (int i =0; i< size; i++)
+    {
+        int total = 0;
+        frutas_y_verduras(lista[i]);
+        carnes_y_congelados(lista[i]);
+        vinos_y_licores(lista[i]);
+        dulceria(lista[i]);
+        articulos_de_limpieza(lista[i]);
+
+        std::cout << "Soy " << lista[i]->nombre << " y gasté un total de $" << *(lista[i]->total_gastado) << " en el super \n";
+    }
 }
 
 // Inciso E: función ganancia 
-// void ganancia_del_dia(Cliente **lista, int *no_elementos)
-// {
-//     int g = 0;
+void gananciaDia(Cliente** lista, int size)
+{
+    int total = 0;
+    for (int i = 0; i < size; i++)
+    {
+        total += *(lista[i]->total_gastado);
+    }
 
-//     for (int i = *no_elementos - 1; i >= 0; i--)
-//     {
-//         g = lista[0][i].total_gastado + g;
-//     }
-    
-//     std::cout << "El día de hoy, el super ganó $" << g << "\n";
-// }
+    std::cout << "Hoy, el supermercado ganó un total de $" << total << "\n";
+}
 
 int main ()
 {
@@ -109,40 +125,37 @@ int main ()
     Cliente juanito; //instancia
     juanito.nombre = "Juanito";
     juanito.teléfono = "+52 55 2967 3642";
-    juanito.total_gastado = 0;
-    numero_clientes_agregados = numero_clientes_agregados + 1;
+    juanito.total_gastado = new int(0);
 
     Cliente magdita;
     magdita.nombre = "Magdita";
     magdita.teléfono = "+52 55 2967 3042";
-    magdita.total_gastado = 0;
-    numero_clientes_agregados = numero_clientes_agregados + 1;  
+    magdita.total_gastado = new int(0);
 
     Cliente pedrito; 
     pedrito.nombre = "Pedrito";
     pedrito.teléfono = "+52 55 2267 3642";
-    pedrito.total_gastado = 0;
-    numero_clientes_agregados = numero_clientes_agregados + 1;
+    pedrito.total_gastado = new int(0);
 
     Cliente pablito;
     pablito.nombre = "Pablito";
     pablito.teléfono = "+52 55 2957 3642";
-    pablito.total_gastado = 0;
-    numero_clientes_agregados = numero_clientes_agregados + 1;
+    pablito.total_gastado = new int(0);
 
     Cliente lorenita;
     lorenita.nombre = "Lorenita";
     lorenita.teléfono = "+52 55 2967 3542";
-    lorenita.total_gastado = 0;
-    numero_clientes_agregados = numero_clientes_agregados + 1;
+    lorenita.total_gastado = new int(0);
 
-    //frutas_y_verduras(&juanito.nombre, &juanito.total_gastado);
+    nuevoCliente(&juanito,lista_de_clientes,&numero_clientes_agregados);
+    nuevoCliente(&magdita,lista_de_clientes,&numero_clientes_agregados);
+    nuevoCliente(&pedrito,lista_de_clientes,&numero_clientes_agregados);
+    nuevoCliente(&pablito,lista_de_clientes,&numero_clientes_agregados);
+    nuevoCliente(&lorenita,lista_de_clientes,&numero_clientes_agregados);
 
-    todos_los_deptos(&juanito, &juanito.total_gastado, lista_de_clientes);
+    gasto(lista_de_clientes,numero_clientes_agregados);
 
- 
-
-    // ganancia_del_dia(lista_de_clientes, &numero_clientes_agregados);
+    gananciaDia(lista_de_clientes,numero_clientes_agregados);
 
     return 0;
 }

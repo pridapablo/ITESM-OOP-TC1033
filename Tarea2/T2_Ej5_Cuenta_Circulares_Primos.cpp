@@ -65,7 +65,7 @@ bool isCircularPrime(int number)
 int circularPrimesInRange(int min, int max)
 {
     int counter = 0;
-    for(int i = min; i < max; i++)
+    for(int i = min; i <= max; i++)
     {
         if (isCircularPrime(i) == true)
         {
@@ -80,6 +80,6 @@ int circularPrimesInRange(int min, int max)
 int main ()
 {
     int min = 0;
-    int max = 1000000;
+    int max = 100;
     return circularPrimesInRange(min, max);
 }

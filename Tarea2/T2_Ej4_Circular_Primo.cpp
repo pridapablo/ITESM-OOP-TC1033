@@ -67,5 +67,6 @@ bool isCircularPrime(int number)
 }
 int main()
 {
-    return isCircularPrime(197);
+    int x = 197;
+    return isCircularPrime(x);
 }
