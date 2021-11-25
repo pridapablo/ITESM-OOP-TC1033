@@ -97,6 +97,22 @@ public:
     int getCaseSize();
     string getBrand();
 };
+class Speakers
+{
+private:
+    string brand;
+    int loudness;
+    string color;
+    int driverSize;
+public:
+    Speakers();
+    Speakers(string brandP, int loudnessP, string colorP, int driverSizeP);
+
+    string getBrand();
+    int getLoudness();
+    string getColor();
+    int getDriverSize();
+};
 // ------------------------------------------
 
 // ------------ Implementacion Celulares ------------
@@ -279,6 +295,39 @@ int Watches::getCaseSize()
 string Watches::getBrand()
 {
     return brand;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Bocinas ------------
+Speakers::Speakers()
+{
+    brand = "n/a";
+    loudness = -1;
+    color = "n/a";
+    driverSize = -1;
+}
+Speakers::Speakers(string brandP, int loudnessP, string colorP, int driverSizeP)
+{
+    brand = brandP;
+    loudness = loudnessP;
+    color = colorP;
+    driverSize = driverSizeP;
+}
+string Speakers::getBrand()
+{
+    return brand;
+}
+int Speakers::getLoudness()
+{
+    return loudness;
+}
+string Speakers::getColor()
+{
+    return color;
+}
+int Speakers::getDriverSize()
+{
+    return driverSize;
 }
 // ----------------------------------------------------
 
