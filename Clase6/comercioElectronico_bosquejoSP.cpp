@@ -2,7 +2,7 @@
 # include <string>
 using namespace std;
 // ------------ Headers (Clases) ------------
-class Celulares
+class Phones
 {
 private:
     // ------------ Atributos ------------
@@ -15,8 +15,8 @@ private:
 
 public:
     // ------------ Constructores ------------
-    Celulares();
-    Celulares(int weightP, int widthP, int heightP, int ramP, double screenSizeP);
+    Phones();
+    Phones(int weightP, int widthP, int heightP, int ramP, double screenSizeP);
     // ------------------------------------------
     
     // ------------ Getters ------------ (uno por cada atributo)
@@ -27,35 +27,80 @@ public:
     double getScreenSize();
     // ------------------------------------------
 };
-class Computadoras
+class Computers
 {
 private:
-    // ------------ Atributos ------------
     string modelNo;
     int weight;
     int storage;
     int ram;
     int cores;
-    // ------------------------------------------
 
 public:
-    // ------------ Constructores ------------
-    Computadoras();
-    Computadoras(string modelNoP, int weightP, int storageP, int ramP, int coresP);
-    // ------------------------------------------
-    
-    // ------------ Getters ------------ (uno por cada atributo)
+    Computers();
+    Computers(string modelNoP, int weightP, int storageP, int ramP, int coresP);
+
     string getModelNo();
     int getWeight();
     int getStorage();
     int getRam();
     int getCores();
-    // ------------------------------------------
+};
+class Tablets
+{
+private:
+    int weight;
+    int width;
+    int height;
+    int ram;
+    double screenSize;
+
+public:
+    Tablets();
+    Tablets(int weightP, int widthP, int heightP, int ramP, double screenSizeP);
+
+    int getWeight();
+    int getWidth();
+    int getHeight();
+    int getRam();
+    double getScreenSize();
+};
+class Cases
+{
+private:
+    string color;
+    string forModel;
+    string brand;
+    string size;
+public:
+    Cases();
+    Cases(string colorP, string forModelP, string brandP, string sizeP);
+
+    string getColor();
+    string getForModel();
+    string getBrand();
+    string getSize();
+};
+class Watches
+{
+private:
+    string caseColor;
+    string bandColor;
+    int caseSize;
+    string brand;
+public:
+    Watches();
+    Watches(string caseColorP, string bandColorP, int caseSizeP, string brandP);
+
+    string getCaseColor();
+    string getBandColor();
+    int getCaseSize();
+    string getBrand();
 };
 // ------------------------------------------
 
 // ------------ Implementacion Celulares ------------
-Celulares::Celulares()
+Phones::Phones()
 {
     weight = -1;
     width = -1;
@@ -63,7 +108,7 @@ Celulares::Celulares()
     ram = -1;
     screenSize = -1.0;
 }
-Celulares::Celulares(int weightP, int widthP, int heightP, int ramP, double screenSizeP)
+Phones::Phones(int weightP, int widthP, int heightP, int ramP, double screenSizeP)
 {
     weight = weightP;
     width = widthP;
@@ -71,30 +116,30 @@ Celulares::Celulares(int weightP, int widthP, int heightP, int ramP, double scre
     ram = ramP;
     screenSize = screenSizeP;
 }
-int Celulares::getWeight()
+int Phones::getWeight()
 {
     return weight;
 }
-int Celulares::getWidth()
+int Phones::getWidth()
 {
     return width;
 }
-int Celulares::getHeight()
+int Phones::getHeight()
 {
     return height;
 }
-int Celulares::getRam()
+int Phones::getRam()
 {
     return ram;
 }
-double Celulares::getScreenSize()
+double Phones::getScreenSize()
 {
     return screenSize;
 }
 // ----------------------------------------------------
 
 // ------------ Implementacion Computadoras ------------ 
-Computadoras::Computadoras()
+Computers::Computers()
 {
     modelNo = "n/a";
     weight = -1;
@@ -102,7 +147,7 @@ Computadoras::Computadoras()
     ram = -1;
     cores = -1;
 }
-Computadoras::Computadoras(string modelNoP, int weightP, int storageP, int ramP, int coresP)
+Computers::Computers(string modelNoP, int weightP, int storageP, int ramP, int coresP)
 {
     modelNo = modelNoP;
     weight = weightP;
@@ -110,32 +155,138 @@ Computadoras::Computadoras(string modelNoP, int weightP, int storageP, int ramP,
     ram = ramP;
     cores = coresP;
 }
-string Computadoras::getModelNo()
+string Computers::getModelNo()
 {
     return modelNo;
 }
-int Computadoras::getWeight()
+int Computers::getWeight()
 {
     return weight;
 }
-int Computadoras::getStorage()
+int Computers::getStorage()
 {
     return storage;
 }
-int Computadoras::getRam()
+int Computers::getRam()
 {
     return ram;
 }
-int Computadoras::getCores()
+int Computers::getCores()
 {
     return cores;
 }
 // ----------------------------------------------------
 
+// ------------ Implementacion Tabletas ------------
+Tablets::Tablets()
+{
+    weight = -1;
+    width = -1;
+    height = -1;
+    ram = -1;
+    screenSize = -1.0;
+}
+Tablets::Tablets(int weightP, int widthP, int heightP, int ramP, double screenSizeP)
+{
+    weight = weightP;
+    width = widthP;
+    height = heightP;
+    ram = ramP;
+    screenSize = screenSizeP;
+}
+int Tablets::getWeight()
+{
+    return weight;
+}
+int Tablets::getWidth()
+{
+    return width;
+}
+int Tablets::getHeight()
+{
+    return height;
+}
+int Tablets::getRam()
+{
+    return ram;
+}
+double Tablets::getScreenSize()
+{
+    return screenSize;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Fundas ------------
+Cases::Cases()
+{
+    color = "n/a";
+    forModel = "n/a";
+    brand = "n/a";
+    size = "n/a";
+}
+Cases::Cases(string colorP, string forModelP, string brandP, string sizeP)
+{
+    color = colorP;
+    forModel = forModelP;
+    brand = brandP;
+    size = sizeP;
+}
+string Cases::getColor()
+{
+    return color;
+}
+string Cases::getForModel()
+{
+    return forModel;
+}
+string Cases::getBrand()
+{
+    return brand;
+}
+string Cases::getSize()
+{
+    return size;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Relojes ------------
+Watches::Watches()
+{
+    caseColor = "n/a";
+    bandColor = "n/a";
+    caseSize = -1;
+    brand = "n/a";
+}
+Watches::Watches(string caseColorP, string bandColorP, int caseSizeP, string brandP)
+{
+    caseColor = caseColorP;
+    bandColor = bandColorP;
+    caseSize = caseSizeP;
+    brand = brandP;
+}
+string Watches::getCaseColor()
+{
+    return caseColor;
+}
+string Watches::getBandColor()
+{
+    return bandColor;
+}
+int Watches::getCaseSize()
+{
+    return caseSize;
+}
+string Watches::getBrand()
+{
+    return brand;
+}
+// ----------------------------------------------------
+
+
 int main()
 {
-    Celulares iPhone_13(300, 2532, 1170, 4, 6.1);
-    Computadoras MacBook_Air("A1932", 2000, 128, 8, 2);
+    Phones iPhone_13(300, 2532, 1170, 4, 6.1);
+    Computers MacBook_Air("A1932", 2000, 128, 8, 2);
 
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
     cout << "No. de modelo de la MacBook Air: " << MacBook_Air.getModelNo() << "\n";
