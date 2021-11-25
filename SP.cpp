@@ -540,9 +540,18 @@ int main()
 {
     Phones iPhone_13(300, 2532, 1170, 4, 6.1);
     Computers MacBook_Air("A1932", 2000, 128, 8, 2);
+    Tablets iPad_8(300,23,22,3,9.1);
+    Cases Samsung_S10_Cover("Rojo","Samsung_S10","Samsung","10 x 5");
+    Watches Garmin_Vivoactive_3("Black","Grey",38,"Garmin");
+    Speakers Bose_SoundLink_II("Bose",100,"Black",10);
+    Headphones AirPods_Pro("Apple","In-Ear",10,"White",1);
+    TV Sony_Bravia_50("Sony",50,"4k LCD",true);
+    Consoles Xbox_One_X("Microsoft - Xbox","Black",4,2000);
+    Monitors BenQ_EyeCare_27("BenQ",27,"1080p LCD","VESA");
 
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
     cout << "No. de modelo de la MacBook Air: " << MacBook_Air.getModelNo() << "\n";
     cout << "Tamaño de pantalla del iPhone 13: " << iPhone_13.getScreenSize() << "\n";
+
     return 0;
 }
