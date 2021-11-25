@@ -61,7 +61,7 @@ Celulares::Celulares()
     width = -1;
     height = -1;
     ram = -1;
-    screenSize = -1;
+    screenSize = -1.0;
 }
 Celulares::Celulares(int weightP, int widthP, int heightP, int ramP, double screenSizeP)
 {
