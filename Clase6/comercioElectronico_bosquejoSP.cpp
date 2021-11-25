@@ -113,6 +113,72 @@ public:
     string getColor();
     int getDriverSize();
 };
+class Headphones
+{
+private:
+    string brand;
+    string type;
+    int loudness;
+    string color;
+    int driverSize;
+public:
+    Headphones();
+    Headphones(string brandP, string typeP, int loudnessP, string colorP, int driverSizeP);
+
+    string getBrand();
+    string getType();
+    int getLoudness();
+    string getColor();
+    int getDriverSize();
+};
+class TV
+{
+private:
+    string brand;
+    float screenSize;
+    string panelType;
+    bool isSmart;
+public:
+    TV();
+    TV(string brandP, float screenSizeP, string panelTypeP, bool isSmartP);
+
+    string getBrand();
+    float getScreenSize();
+    string getPanelType();
+    bool getIsSmart();
+};
+class Consoles
+{
+private:
+    string brand;
+    string color;
+    int generation;
+    int weight;
+public:
+    Consoles();
+    Consoles(string brandP, string colorP, int generationP, int weightP);
+
+    string getBrand();
+    string getColor();
+    int getGeneration();
+    int getWeight();
+};
+class Monitors
+{
+private:
+    string brand;
+    float screenSize;
+    string panelType;
+    string mountType;
+public:
+    Monitors();
+    Monitors(string brandP, float screenSizeP, string panelTypeP, string mountTypeP);
+
+    string getBrand();
+    float getScreenSize();
+    string getPanelType();
+    string getMountType();
+};
 // ------------------------------------------
 
 // ------------ Implementacion Celulares ------------
@@ -328,6 +394,144 @@ string Speakers::getColor()
 int Speakers::getDriverSize()
 {
     return driverSize;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Audífonos ------------
+Headphones::Headphones()
+{
+    brand = "n/a";
+    type = "n/a";
+    loudness = -1;
+    color = "n/a";
+    driverSize = -1;
+}
+Headphones::Headphones(string brandP, string typeP, int loudnessP, string colorP, int driverSizeP)
+{
+    brand = brandP;
+    type = typeP;
+    loudness = loudnessP;
+    color = colorP;
+    driverSize = driverSizeP;
+}
+string Headphones::getBrand()
+{
+    return brand;
+}
+string Headphones::getType()
+{
+    return type;
+}
+int Headphones::getLoudness()
+{
+    return loudness;
+}
+string Headphones::getColor()
+{
+    return color;
+}
+int Headphones::getDriverSize()
+{
+    return driverSize;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Televisiones ------------
+TV::TV()
+{
+    brand = "n/a";
+    screenSize = -1;
+    panelType = "n/a";
+    isSmart = false;
+}
+TV::TV(string brandP, float screenSizeP, string panelTypeP, bool isSmartP)
+{
+    brand = brandP;
+    screenSize = screenSizeP;
+    panelType = panelTypeP;
+    isSmart = isSmartP;
+}
+string TV::getBrand()
+{
+    return brand;
+}
+float TV::getScreenSize()
+{
+    return screenSize;
+}
+string TV::getPanelType()
+{
+    return panelType;
+}
+bool TV::getIsSmart()
+{
+    return isSmart;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Consolas ------------
+Consoles::Consoles()
+{
+    brand = "n/a";
+    color = "n/a";
+    generation = -1;
+    weight = -1;
+}
+Consoles::Consoles(string brandP, string colorP, int generationP, int weightP)
+{
+    brand = brandP;
+    color = colorP;
+    generation = generationP;
+    weight = weightP;
+}
+string Consoles::getBrand()
+{
+    return brand;
+}
+string Consoles::getColor()
+{
+    return color;
+}
+int Consoles::getGeneration()
+{
+    return generation;
+}
+int Consoles::getWeight()
+{
+    return weight;
+}
+// ----------------------------------------------------
+
+// ------------ Implementacion Monitores ------------
+Monitors::Monitors()
+{
+    brand = "n/a";
+    screenSize = -1;
+    panelType = "n/a";
+    mountType = "n/a";
+}
+Monitors::Monitors(string brandP, float screenSizeP, string panelTypeP, string mountTypeP)
+{
+    brand = brandP;
+    screenSize = screenSizeP;
+    panelType = panelTypeP;
+    mountType = mountTypeP;
+}
+string Monitors::getBrand()
+{
+    return brand;
+}
+float Monitors::getScreenSize()
+{
+    return screenSize;
+}
+string Monitors::getPanelType()
+{
+    return panelType;
+}
+string Monitors::getMountType()
+{
+    return mountType;
 }
 // ----------------------------------------------------
 
