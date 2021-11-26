@@ -552,6 +552,7 @@ int main()
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
     cout << "No. de modelo de la MacBook Air: " << MacBook_Air.getModelNo() << "\n";
     cout << "Tamaño de pantalla del iPhone 13: " << iPhone_13.getScreenSize() << "\n";
+    cout << "Tipo de soporte para el monitor BenQ EyeCare: " << BenQ_EyeCare_27.getMountType() << "\n";
 
     return 0;
 }
