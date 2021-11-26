@@ -552,6 +552,12 @@ int main()
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
     cout << "No. de modelo de la MacBook Air: " << MacBook_Air.getModelNo() << "\n";
     cout << "Tamaño de pantalla del iPhone 13: " << iPhone_13.getScreenSize() << "\n";
+    cout << "Marca funda: " << Samsung_S10_Cover.getBrand() << "\n";
+    cout << "Garmin color" << Garmin_Vivoactive_3.getCaseColor() << "\n";
+    cout << "Bocina Bose volúmen máximo: " << Bose_SoundLink_II.getLoudness() << "\n";
+    cout << "AirPods marca: " << AirPods_Pro.getBrand() << "\n";
+    cout << "¿La tele Sony Bravia de 50\" es inteligente?: " << Sony_Bravia_50.getIsSmart() << "\n";
+    cout << "Xbox One peso: " << Xbox_One_X.getWeight() << "\n";
     cout << "Tipo de soporte para el monitor BenQ EyeCare: " << BenQ_EyeCare_27.getMountType() << "\n";
 
     return 0;
