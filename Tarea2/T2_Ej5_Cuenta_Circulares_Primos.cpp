@@ -92,6 +92,6 @@ int circularPrimesInRange(int min, int max)
 int main ()
 {
     int min = 0;
-    int max = 100000;
+    int max = 100;
     return circularPrimesInRange(min, max);
 }
