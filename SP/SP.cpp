@@ -624,37 +624,21 @@ void Monitors::printMonitors()
 class Store
 {
 private:
-    int minStock; // Stock mínimo
-    Phones** listOfPhones;
+    int minStock;
+    int countStockPhones;
+    Phones** phoneList;
+    Client** ClientList;
+    int countClientsAdded;
+    int maxSizeClientList;
 public:
-    Store();
-    Store(int minStock);
-
-    void listProducts(); //getter
-    void addPhone(Phones* d)
+    Store(int minStockP);
+    void listProducts();
+    void addPhone(Phones* d);
+    int getMinStock();
+    int getCountStockPhones();
+    void sellPhones(Client* cliente);
 };
 
-Store::Store(){}
-Store::Store(int minStockP)
-{
-    minStock = minStockP;
-    listOfPhones = new Phones*[minStock];
-    for (int i = 0; i < minStock; i++)
-    {
-        listOfPhones[i] = new Phones(300, 2532, 1170, 4, 6.1);
-    }
-}
-
-void Store::addPhone(Phones* d)
-{
-    listOfPhones[count] = d;
-    count++;
-}
-
-void Store::listProducts()
-{
-    cout <<
-}
 // ------------------------------------------
 
 int main()
