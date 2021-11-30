@@ -20,7 +20,7 @@ private:
 public:
     // ------------ Constructores ------------
     Phones();
-    Phones(int weightP, int widthP, int heightP, int ramP, double screenSizeP);
+    Phones(int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP);
     // ------------------------------------------
     
     // ------------ Getters ------------ (uno por cada atributo)
@@ -47,7 +47,7 @@ private:
 
 public:
     Computers();
-    Computers(string modelNoP, int weightP, int storageP, int ramP, int coresP);
+    Computers(string modelNoP, int weightP, int storageP, int ramP, int coresP, int priceP);
 
     string getModelNo();
     int getWeight();
@@ -71,7 +71,7 @@ private:
 
 public:
     Tablets();
-    Tablets(int weightP, int widthP, int heightP, int ramP, double screenSizeP);
+    Tablets(int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP);
 
     int getWeight();
     int getWidth();
@@ -93,7 +93,7 @@ private:
     string name;
 public:
     Cases();
-    Cases(string colorP, string forModelP, string brandP, string sizeP);
+    Cases(string colorP, string forModelP, string brandP, string sizeP, int priceP);
 
     string getColor();
     string getForModel();
@@ -114,7 +114,7 @@ private:
     string name;
 public:
     Watches();
-    Watches(string caseColorP, string bandColorP, int caseSizeP, string brandP);
+    Watches(string caseColorP, string bandColorP, int caseSizeP, string brandP, int priceP);
 
     string getCaseColor();
     string getBandColor();
@@ -135,7 +135,7 @@ private:
     string name;
 public:
     Speakers();
-    Speakers(string brandP, int loudnessP, string colorP, int driverSizeP);
+    Speakers(string brandP, int loudnessP, string colorP, int driverSizeP, int priceP);
 
     string getBrand();
     int getLoudness();
@@ -157,7 +157,7 @@ private:
     string name;
 public:
     Headphones();
-    Headphones(string brandP, string typeP, int loudnessP, string colorP, int driverSizeP);
+    Headphones(string brandP, string typeP, int loudnessP, string colorP, int driverSizeP, int priceP);
 
     string getBrand();
     string getType();
@@ -179,7 +179,7 @@ private:
     string name;
 public:
     TV();
-    TV(string brandP, float screenSizeP, string panelTypeP, bool isSmartP);
+    TV(string brandP, float screenSizeP, string panelTypeP, bool isSmartP, int priceP);
 
     string getBrand();
     float getScreenSize();
@@ -200,7 +200,7 @@ private:
     string name;
 public:
     Consoles();
-    Consoles(string brandP, string colorP, int generationP, int weightP);
+    Consoles(string brandP, string colorP, int generationP, int weightP, int priceP);
 
     string getBrand();
     string getColor();
@@ -221,7 +221,7 @@ private:
     string name;
 public:
     Monitors();
-    Monitors(string brandP, float screenSizeP, string panelTypeP, string mountTypeP);
+    Monitors(string brandP, float screenSizeP, string panelTypeP, string mountTypeP, int priceP);
 
     string getBrand();
     float getScreenSize();
@@ -242,13 +242,14 @@ Phones::Phones()
     ram = -1;
     screenSize = -1.0;
 }
-Phones::Phones(int weightP, int widthP, int heightP, int ramP, double screenSizeP)
+Phones::Phones(int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP)
 {
     weight = weightP;
     width = widthP;
     height = heightP;
     ram = ramP;
     screenSize = screenSizeP;
+    price = priceP;
 }
 int Phones::getWeight()
 {
@@ -297,13 +298,14 @@ Computers::Computers()
     ram = -1;
     cores = -1;
 }
-Computers::Computers(string modelNoP, int weightP, int storageP, int ramP, int coresP)
+Computers::Computers(string modelNoP, int weightP, int storageP, int ramP, int coresP, int priceP)
 {
     modelNo = modelNoP;
     weight = weightP;
     storage = storageP;
     ram = ramP;
     cores = coresP;
+    price = priceP;
 }
 string Computers::getModelNo()
 {
@@ -351,13 +353,14 @@ Tablets::Tablets()
     ram = -1;
     screenSize = -1.0;
 }
-Tablets::Tablets(int weightP, int widthP, int heightP, int ramP, double screenSizeP)
+Tablets::Tablets(int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP)
 {
     weight = weightP;
     width = widthP;
     height = heightP;
     ram = ramP;
     screenSize = screenSizeP;
+    price = priceP;
 }
 int Tablets::getWeight()
 {
@@ -405,12 +408,13 @@ Cases::Cases()
     brand = "n/a";
     size = "n/a";
 }
-Cases::Cases(string colorP, string forModelP, string brandP, string sizeP)
+Cases::Cases(string colorP, string forModelP, string brandP, string sizeP, int priceP)
 {
     color = colorP;
     forModel = forModelP;
     brand = brandP;
     size = sizeP;
+    price = priceP;
 }
 string Cases::getColor()
 {
@@ -453,12 +457,13 @@ Watches::Watches()
     caseSize = -1;
     brand = "n/a";
 }
-Watches::Watches(string caseColorP, string bandColorP, int caseSizeP, string brandP)
+Watches::Watches(string caseColorP, string bandColorP, int caseSizeP, string brandP, int priceP)
 {
     caseColor = caseColorP;
     bandColor = bandColorP;
     caseSize = caseSizeP;
     brand = brandP;
+    price = priceP;
 }
 string Watches::getCaseColor()
 {
@@ -501,12 +506,13 @@ Speakers::Speakers()
     color = "n/a";
     driverSize = -1;
 }
-Speakers::Speakers(string brandP, int loudnessP, string colorP, int driverSizeP)
+Speakers::Speakers(string brandP, int loudnessP, string colorP, int driverSizeP, int priceP)
 {
     brand = brandP;
     loudness = loudnessP;
     color = colorP;
     driverSize = driverSizeP;
+    price = priceP;
 }
 string Speakers::getBrand()
 {
@@ -529,7 +535,7 @@ void Speakers::printSpeakers()
     cout << "Marca: " << brand << "\n";
     cout << "Volumen máximo: " << loudness << "\n";
     cout << "Color: " << color << "\n";
-    cout << "Tamaño del parlante: " driverSize << "\n";
+    cout << "Tamaño del parlante: " << driverSize << "\n";
 }
 int Speakers::getPrice()
 {
@@ -550,13 +556,14 @@ Headphones::Headphones()
     color = "n/a";
     driverSize = -1;
 }
-Headphones::Headphones(string brandP, string typeP, int loudnessP, string colorP, int driverSizeP)
+Headphones::Headphones(string brandP, string typeP, int loudnessP, string colorP, int driverSizeP, int priceP)
 {
     brand = brandP;
     type = typeP;
     loudness = loudnessP;
     color = colorP;
     driverSize = driverSizeP;
+    price = priceP;
 }
 string Headphones::getBrand()
 {
@@ -584,7 +591,7 @@ void Headphones::printHeadphones()
     cout << "Tipo de audífonos: " << type << "\n";
     cout << "Volumen máximo: " << loudness << "\n";
     cout << "Color: " << color << "\n";
-    cout << "Tamaño del parlante: " driverSize << "\n";
+    cout << "Tamaño del parlante: " << driverSize << "\n";
 }
 int Headphones::getPrice()
 {
@@ -604,12 +611,13 @@ TV::TV()
     panelType = "n/a";
     isSmart = false;
 }
-TV::TV(string brandP, float screenSizeP, string panelTypeP, bool isSmartP)
+TV::TV(string brandP, float screenSizeP, string panelTypeP, bool isSmartP, int priceP)
 {
     brand = brandP;
     screenSize = screenSizeP;
     panelType = panelTypeP;
     isSmart = isSmartP;
+    price = priceP;
 }
 string TV::getBrand()
 {
@@ -630,7 +638,7 @@ bool TV::getIsSmart()
 void TV::printTV()
 {
     cout << "Marca: " << brand << "\n";
-    cout << "Tamaño de la pantalla: " screenSize << "\n";
+    cout << "Tamaño de la pantalla: " << screenSize << "\n";
     cout << "Tipo de panel: " << panelType << "\n";
     cout << "¿La televison es inteligente?: " << isSmart << "\n";
 }
@@ -652,12 +660,13 @@ Consoles::Consoles()
     generation = -1;
     weight = -1;
 }
-Consoles::Consoles(string brandP, string colorP, int generationP, int weightP)
+Consoles::Consoles(string brandP, string colorP, int generationP, int weightP, int priceP)
 {
     brand = brandP;
     color = colorP;
     generation = generationP;
     weight = weightP;
+    price = priceP;
 }
 string Consoles::getBrand()
 {
@@ -700,12 +709,13 @@ Monitors::Monitors()
     panelType = "n/a";
     mountType = "n/a";
 }
-Monitors::Monitors(string brandP, float screenSizeP, string panelTypeP, string mountTypeP)
+Monitors::Monitors(string brandP, float screenSizeP, string panelTypeP, string mountTypeP, int priceP)
 {
     brand = brandP;
     screenSize = screenSizeP;
     panelType = panelTypeP;
     mountType = mountTypeP;
+    price = priceP;
 }
 string Monitors::getBrand()
 {
@@ -763,31 +773,31 @@ public:
 Client::Client(){}
 Client::Client(string fullNameP, int clientIDP)
 {
-    fullNameP = fullNameP;
+    fullName = fullNameP;
     clientID = clientIDP;
     maxSizeList = 5;
     countBoughtItems = 0;
     listBoughtItems = new string[maxSizeList];
 }
-Client::getFullName()
+string Client::getFullName()
 {
     return fullName;
 }
-Client::getClientID()
+int Client::getClientID()
 {
     return clientID;
 }
-Client::getTotalSpent()
+double Client::getTotalSpent()
 {
     return totalSpent;
 }
-Client::addToTotalSpent(double totalSpentP)
+void Client::addToTotalSpent(double totalSpentP)
 {
-
+    ;
 }
-Client::addBoughtItems(string nombreProductoP)
+void Client::addBoughtItems(string nombreProductoP)
 {
-
+    ;
 }
 // ------------------------------------------
 
@@ -796,26 +806,122 @@ class Store
 {
 private:
     int minStock;
-    int countStockPhones;
-    Phones** phoneList;
-    Client** ClientList;
+    Client** clientList;
     int countClientsAdded;
     int maxSizeClientList;
+
+    Phones** phoneList;
+    int countStockPhones;
+
+    Computers** computerList;
+    int countStockComputers;
+
+    Tablets** tabletList;
+    int countStockTablets;
+
+    Cases** caseList;
+    int countStockCases;
+
+    Watches** watchList;
+    int countStockWatches;
+
+    Speakers** speakerList;
+    int countStockSpeakers;
+
+    Headphones** headphoneList;
+    int countStockHeadphones;
+
+    TV** tvList;
+    int countStockTVs;
+
+    Consoles** consoleList;
+    int countStockConsoles;
+
+    Monitors** monitorList;
+    int countStockMonitors;
+
+    Store();
 public:
     Store(int minStockP);
     void listProducts();
-    void addPhone(Phones* d);
     int getMinStock();
+
+    void addPhone(Phones* d);
     int getCountStockPhones();
-    void sellPhones(Client* cliente);
+    void sellPhone(Client* cliente);
+
+    void addComputer(Computers* d);
+    int getCountStockComputers();
+    void sellComputer(Client* cliente);
+
+    void addTablet(Tablets* d);
+    int getCountStockTablets();
+    void sellTablet(Client* cliente);
+
+    void addCase(Cases* d);
+    int getCountStockCases();
+    void sellCase(Client* cliente);
+
+    void addWatch(Watches* d);
+    int getCountStockWatches();
+    void sellWatch(Client* cliente);
+
+    void addSpeaker(Speakers* d);
+    int getCountStockSpeakers();
+    void sellSpeaker(Client* cliente);
+
+    void addHeadphone(Headphones* d);
+    int getCountStockHeadphones();
+    void sellHeadphone(Client* cliente);
+
+    void addTV(TV* d);
+    int getCountStockTVs();
+    void sellTV(Client* cliente);
+
+    void addConsole(Consoles* d);
+    int getCountStockConsoles();
+    void sellConsole(Client* cliente);
+
+    void addMonitor(Monitors* d);
+    int getCountStockMonitors();
+    void sellMonitor(Client* cliente);
 };
 
 Store::Store(){}
 Store::Store(int minStockP)
 {
     minStock = minStockP;
+
     countStockPhones = 0;
     phoneList = new Phones*[minStock];
+    
+    countStockComputers = 0;
+    computerList = new Computers*[minStock];
+    
+    countStockTablets = 0;
+    tabletList = new Tablets*[minStock];
+
+    countStockCases = 0;
+    caseList = new Cases*[minStock];
+
+    countStockWatches = 0;
+    watchList = new Watches*[minStock];
+
+    countStockSpeakers = 0;
+    speakerList = new Speakers*[minStock];
+
+    countStockHeadphones = 0;
+    headphoneList = new Headphones*[minStock];
+
+    countStockTVs = 0;
+    tvList = new TV*[minStock];
+
+    countStockConsoles = 0;
+    consoleList = new Consoles*[minStock];
+
+    countStockMonitors = 0;
+    monitorList = new Monitors*[minStock];
+
     maxSizeClientList = 5;
     countClientsAdded = 0;
     clientList = new Client*[maxSizeClientList];
@@ -823,57 +929,283 @@ Store::Store(int minStockP)
 void Store::listProducts()
 {
     phoneList[0]->printPhones();
-    cout "Total de Telefonos en Stock: " << countStockPhones << "\n";
-}
-void Store::addPhone(Phones* d)
-{
-    phoneList[countStockPhones] = d;
-    countStockPhones++;
+    cout << "Total de telefonos en stock: " << countStockPhones << "\n";
+    cout << "Total de computadoras en stock: " << countStockComputers << "\n";
+    cout << "Total de tabletas en stock: " << countStockTablets << "\n";
+    cout << "Total de fundas en stock: " << countStockCases << "\n";
+    cout << "Total de relojes en stock: " << countStockWatches << "\n";
+    cout << "Total de bocinas en stock: " << countStockSpeakers << "\n";
+    cout << "Total de audifonos en stock: " << countStockHeadphones << "\n";
+    cout << "Total de televisiones en stock: " << countStockTVs << "\n";
+    cout << "Total de consolas en stock: " << countStockConsoles << "\n";
+    cout << "Total de monitores en stock: " << countStockMonitors << "\n";
 }
 int Store::getMinStock()
 {
     return minStock;
 }
+
+void Store::addPhone(Phones* d)
+{
+    phoneList[countStockPhones] = d;
+    countStockPhones++;
+}
 int Store::getCountStockPhones()
 {
     return countStockPhones;
 }
-void Store::sellPhones(Client* client)
+void Store::sellPhone(Client* client)
 {
     cout << "Bienvenid@ " << client->getFullName();
     cout << " pagarás " << phoneList[0]->getPrice() << " por el telefono \n"; 
     client->addBoughtItems(phoneList[countStockPhones-1]->getName());  //Se agrega al Cliente la info de lo que compró
-    cliente->incrementarTotalGastado(listaDesinfectantes[contadorDesinfectantesEnStock-1]->getPrecio());  //Se agrega al Cliente la info de lo que compró
-    contadorDesinfectantesEnStock--;    // se reduce el stock del producto vendido
+    client->addToTotalSpent(phoneList[countStockPhones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockPhones--;    // se reduce el stock del producto vendido
 
-    clientList[countClientsAdded] = cliente;
-    countClientsAdded++;
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addComputer(Computers* d)
+{
+    computerList[countStockComputers] = d;
+    countStockComputers++;
+}
+int Store::getCountStockComputers()
+{
+    return countStockComputers;
+}
+void Store::sellComputer(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << phoneList[0]->getPrice() << " por la computadora \n"; 
+    client->addBoughtItems(computerList[countStockComputers-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(computerList[countStockComputers-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockComputers--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addTablet(Tablets* d)
+{
+    tabletList[countStockTablets] = d;
+    countStockTablets++;
+}
+int Store::getCountStockTablets()
+{
+    return countStockTablets;
+}
+void Store::sellTablet(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << tabletList[0]->getPrice() << " por la tableta \n"; 
+    client->addBoughtItems(tabletList[countStockTablets-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(tabletList[countStockTablets-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockTablets--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addCase(Cases* d)
+{
+    caseList[countStockCases] = d;
+    countStockCases++;
+}
+int Store::getCountStockCases()
+{
+    return countStockCases;
+}
+void Store::sellCase(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << caseList[0]->getPrice() << " por la funda \n"; 
+    client->addBoughtItems(caseList[countStockTablets-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(caseList[countStockTablets-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockCases--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addWatch(Watches* d)
+{
+    watchList[countStockWatches] = d;
+    countStockWatches++;
+}
+int Store::getCountStockWatches()
+{
+    return countStockWatches;
+}
+void Store::sellWatch(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << watchList[0]->getPrice() << " por el reloj \n"; 
+    client->addBoughtItems(watchList[countStockWatches-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(watchList[countStockWatches-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockWatches--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addSpeaker(Speakers* d)
+{
+    speakerList[countStockSpeakers] = d;
+    countStockSpeakers++;
+}
+int Store::getCountStockSpeakers()
+{
+    return countStockSpeakers;
+}
+void Store::sellSpeaker(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << watchList[0]->getPrice() << " por la bocina \n"; 
+    client->addBoughtItems(watchList[countStockSpeakers-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(watchList[countStockSpeakers-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockSpeakers--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addHeadphone(Headphones* d)
+{
+    headphoneList[countStockHeadphones] = d;
+    countStockHeadphones++;
+}
+int Store::getCountStockHeadphones()
+{
+    return countStockHeadphones;
+}
+void Store::sellHeadphone(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << headphoneList[0]->getPrice() << " por los audifonos \n"; 
+    client->addBoughtItems(headphoneList[countStockHeadphones-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(headphoneList[countStockHeadphones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockHeadphones--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addTV(TV* d)
+{
+    tvList[countStockTVs] = d;
+    countStockTVs++;
+}
+int Store::getCountStockTVs()
+{
+    return countStockTVs;
+}
+void Store::sellTV(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << tvList[0]->getPrice() << " por la televison \n"; 
+    client->addBoughtItems(tvList[countStockTVs-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(tvList[countStockTVs-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockTVs--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addConsole(Consoles* d)
+{
+    consoleList[countStockConsoles] = d;
+    countStockConsoles++;
+}
+int Store::getCountStockConsoles()
+{
+    return countStockConsoles;
+}
+void Store::sellConsole(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << consoleList[0]->getPrice() << " por la consola \n"; 
+    client->addBoughtItems(consoleList[countStockConsoles-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(consoleList[countStockConsoles-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockConsoles--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
+}
+
+void Store::addMonitor(Monitors* d)
+{
+    monitorList[countStockMonitors] = d;
+    countStockMonitors++;
+}
+int Store::getCountStockMonitors()
+{
+    return countStockMonitors;
+}
+void Store::sellMonitor(Client* client)
+{
+    cout << "Bienvenid@ " << client->getFullName();
+    cout << " pagarás " << monitorList[0]->getPrice() << " por el monitor \n"; 
+    client->addBoughtItems(monitorList[countStockMonitors-1]->getName());  //Se agrega al Cliente la info de lo que compró
+    client->addToTotalSpent(monitorList[countStockMonitors-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
+    countStockMonitors--;    // se reduce el stock del producto vendido
+
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 // ------------------------------------------
 
+
 int main()
 {
-    Phones iPhone_13(300, 2532, 1170, 4, 6.1);
-    Computers MacBook_Air("A1932", 2000, 128, 8, 2);
-    Tablets iPad_8(300,23,22,3,9.1);
-    Cases Samsung_S10_Cover("Rojo","Samsung_S10","Samsung","10 x 5");
-    Watches Garmin_Vivoactive_3("Black","Grey",38,"Garmin");
-    Speakers Bose_SoundLink_II("Bose",100,"Black",10);
-    Headphones AirPods_Pro("Apple","In-Ear",10,"White",1);
-    TV Sony_Bravia_50("Sony",50,"4k LCD",true);
-    Consoles Xbox_One_X("Microsoft - Xbox","Black",4,2000);
-    Monitors BenQ_EyeCare_27("BenQ",27,"1080p LCD","VESA");
-
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
-    cout << "No. de modelo de la MacBook Air: " << MacBook_Air.getModelNo() << "\n";
-    cout << "Tamaño de pantalla del iPhone 13: " << iPhone_13.getScreenSize() << "\n";
-    cout << "Marca funda: " << Samsung_S10_Cover.getBrand() << "\n";
-    cout << "Garmin color" << Garmin_Vivoactive_3.getCaseColor() << "\n";
-    cout << "Bocina Bose volúmen máximo: " << Bose_SoundLink_II.getLoudness() << "\n";
-    cout << "AirPods marca: " << AirPods_Pro.getBrand() << "\n";
-    cout << "¿La tele Sony Bravia de 50\" es inteligente?: " << Sony_Bravia_50.getIsSmart() << "\n";
-    cout << "Xbox One peso: " << Xbox_One_X.getWeight() << "\n";
-    cout << "Tipo de soporte para el monitor BenQ EyeCare: " << BenQ_EyeCare_27.getMountType() << "\n";
+    Store tiendaPablito(5);
 
+    Phones iPhone_13(300, 2532, 1170, 4, 6.1, 23000);
+    Phones iPhone_12(300, 2532, 1170, 3, 6.0, 20000);
+    tiendaPablito.addPhone(&iPhone_13);
+    tiendaPablito.addPhone(&iPhone_12);
+
+    Computers MacBook_Air("A1932", 2000, 128, 8, 2, 320000);
+    tiendaPablito.addComputer(&MacBook_Air);
+
+    Tablets iPad_8(300,23,22,3,9.1,10000);
+    tiendaPablito.addTablet(&iPad_8);
+
+    Cases Samsung_S10_Cover("Rojo","Samsung_S10","Samsung","10 x 5",500);
+    tiendaPablito.addCase(&Samsung_S10_Cover);
+    
+    Watches Garmin_Vivoactive_3("Black","Grey",38,"Garmin", 3000);
+    tiendaPablito.addWatch(&Garmin_Vivoactive_3);
+    
+    Speakers Bose_SoundLink_II("Bose",100,"Black",10, 3400);
+    tiendaPablito.addSpeaker(&Bose_SoundLink_II);
+    
+    Headphones AirPods_Pro("Apple","In-Ear",10,"White",1, 5000);
+    tiendaPablito.addHeadphone(&AirPods_Pro);
+    
+    TV Sony_Bravia_50("Sony",50,"4k LCD",true, 20000);
+    tiendaPablito.addTV(&Sony_Bravia_50);
+    
+    Consoles Xbox_One_X("Microsoft - Xbox","Black",4,2000, 7399);
+    tiendaPablito.addConsole(&Xbox_One_X);
+    
+    Monitors BenQ_EyeCare_27("BenQ",27,"1080p LCD","VESA", 5999);
+    tiendaPablito.addMonitor(&BenQ_EyeCare_27);
+
+    Client pedrito("Pedrito",1);
+    tiendaPablito.sellPhone(&pedrito);
+    tiendaPablito.sellComputer(&pedrito);
+    tiendaPablito.sellCase(&pedrito);
+    tiendaPablito.sellWatch(&pedrito);
+    tiendaPablito.sellSpeaker(&pedrito);
+    tiendaPablito.sellHeadphone(&pedrito);
+    tiendaPablito.sellTV(&pedrito);
+    tiendaPablito.sellConsole(&pedrito);
+    tiendaPablito.sellMonitor(&pedrito);
+
+    tiendaPablito.listProducts();
+    
     return 0;
 }
