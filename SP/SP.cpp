@@ -875,6 +875,7 @@ private:
     Store();
 public:
     Store(int minStockP);
+    ~Store();
     void listProducts();
     int getMinStock();
 
@@ -917,6 +918,8 @@ public:
     void addMonitor(Monitors* d);
     int getCountStockMonitors();
     void sellMonitor(Client* cliente);
+
+    void printTotalSales();
 };
 
 Store::Store(){}
@@ -958,59 +961,71 @@ Store::Store(int minStockP)
     countClientsAdded = 0;
     clientList = new Client*[maxSizeClientList];
 }
+Store::~Store()
+{
+    delete [] phoneList;
+    delete [] computerList;
+    delete [] tabletList;
+    delete [] caseList;
+    delete [] watchList;
+    delete [] speakerList;
+    delete [] headphoneList;
+    delete [] tvList;
+    delete [] consoleList;
+    delete [] monitorList;
+}
 void Store::listProducts()
 {
-    for (int i = 0; i > countStockPhones; i++)
-    {
-       phoneList[i]->printPhones();
-    }
-    // for (int i = 0; i >= countStockComputers; i++)
-    // {
-    //    computerList[i]->printComputers();
-    // }
-    for (int i = 0; i >= countStockTablets; i++)
-    {
-       tabletList[i]->printTablets();
-    }
-    // for (int i = 0; i >= countStockCases; i++)
-    // {
-    //    caseList[i]->printCases();
-    // }
-    // for (int i = 0; i >= countStockWatches; i++)
-    // {
-    //    watchList[i]->printWatches();
-    // }
-    // for (int i = 0; i >= countStockSpeakers; i++)
-    // {
-    //    speakerList[i]->printSpeakers();
-    // }
-    // for (int i = 0; i >= countStockHeadphones; i++)
-    // {
-    //    headphoneList[i]->printHeadphones();
-    // }
-    // for (int i = 0; i >= countStockTVs; i++)
-    // {
-    //    tvList[i]->printTV();
-    // }
-    // for (int i = 0; i >= countStockConsoles; i++)
-    // {
-    //    consoleList[i]->printConsoles();
-    // }
-    //   for (int i = 0; i >= countStockMonitors; i++)
-    // {
-    //    monitorList[i]->printMonitors();
-    // }
-
     cout << "Total de telefonos en stock: " << countStockPhones << "\n";
+    if (countStockPhones != 0)
+    {
+        phoneList[0]->printPhones();
+    }
     cout << "Total de computadoras en stock: " << countStockComputers << "\n";
+    if (countStockComputers != 0)
+    {
+        computerList[0]->printComputers();
+    }
     cout << "Total de tabletas en stock: " << countStockTablets << "\n";
+    if (countStockTablets != 0)
+    {
+        tabletList[0]->printTablets();
+    }
     cout << "Total de fundas en stock: " << countStockCases << "\n";
+    if (countStockCases != 0)
+    {
+        caseList[0]->printCases();
+    }
     cout << "Total de relojes en stock: " << countStockWatches << "\n";
+    if (countStockWatches != 0)
+    {
+        watchList[0]->printWatches();
+    }
     cout << "Total de bocinas en stock: " << countStockSpeakers << "\n";
+    if (countStockSpeakers != 0)
+    {
+        speakerList[0]->printSpeakers();
+    }
     cout << "Total de audifonos en stock: " << countStockHeadphones << "\n";
+    if (countStockHeadphones != 0)
+    {
+        headphoneList[0]->printHeadphones();
+    }
     cout << "Total de televisiones en stock: " << countStockTVs << "\n";
+    if (countStockTVs != 0)
+    {
+        tvList[0]->printTV();
+    }
     cout << "Total de consolas en stock: " << countStockConsoles << "\n";
+    if (countStockConsoles != 0)
+    {
+        consoleList[0]->printConsoles();
+    }
     cout << "Total de monitores en stock: " << countStockMonitors << "\n";
+    if (countStockMonitors != 0)
+    {
+        monitorList[0]->printMonitors();
+    }
 }
 int Store::getMinStock()
 {
@@ -1034,8 +1049,8 @@ void Store::sellPhone(Client* client)
     client->addToTotalSpent(phoneList[countStockPhones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockPhones--;    // se reduce el stock del producto vendido
 
+    phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
     clientList[countClientsAdded++] = client; //postincremento directo en la línea
-    // countClientsAdded++; no es necesario hacer una linea nueva para esto
 }
 
 void Store::addComputer(Computers* d)
@@ -1226,6 +1241,16 @@ void Store::sellMonitor(Client* client)
     // clientList[countClientsAdded] = cliente;
     // countClientsAdded++;
 }
+
+void Store::printTotalSales()
+{
+    double totalSales = 0;
+    for (int i = 0; i < countClientsAdded; i++)
+    {
+        totalSales += clientList[i]->getTotalSpent();
+    }
+    cout << "El total vendido fue: $" << totalSales << "\n";
+}
 // ------------------------------------------
 
 
@@ -1235,9 +1260,7 @@ int main()
     Store tiendaPablito(5);
 
     Phones iPhone_13("iPhone 13",300, 2532, 1170, 4, 6.1, 23000);
-    Phones iPhone_12("iPhone 12",300, 2532, 1170, 3, 6.0, 20000);
     tiendaPablito.addPhone(&iPhone_13);
-    tiendaPablito.addPhone(&iPhone_12);
 
     Computers MacBook_Air("MacBook Air","A1932", 2000, 128, 8, 2, 320000);
     tiendaPablito.addComputer(&MacBook_Air);
@@ -1280,19 +1303,23 @@ int main()
     tiendaPablito.sellConsole(&pedrito);
     tiendaPablito.sellMonitor(&pedrito);
 
+    // Lista de productos
     tiendaPablito.listProducts();
 
     // Total de productos vendidos
+    tiendaPablito.printTotalSales();
+    
     // Clientes a los que se le vendió y cuanto se les vendió
     
+
     return 0;
 }
 
+// Por hacer
 // Cambiar precios de int a "double"
 // Cambiar todos los floats a "double"
-// Sumar precios
-// Usar los getters dentro del cout del método void printPhones en lugar de las variables
-// Meter un for desde cero hasta sotckPhones imprimir los atributos de cada instancia (línea 931)
-// Duda 1: dijo que había que sumar precios
-// Duda 2: hay que poner un total de lo que va a pagar un cliente que entra a la tienda
-// Duda 3: donde irían los delete's
+// agregar 2 lineas de sell phone a las otras implementaciones de la clase cliente
+
+// OPCIONAL: Meter un for desde cero hasta sotckPhones imprimir los atributos de cada instancia (línea 931) en caso de hacerlo esto tambien debe estar en un for: phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
+
+// Duda 1: como hacer lo de poner un total de lo que va a pagar un cliente que entra a la tienda
