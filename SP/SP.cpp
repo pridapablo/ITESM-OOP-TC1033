@@ -13,14 +13,14 @@ private:
     int height;
     int ram;
     double screenSize;
-    int price;
+    double price;
     string name;
     // ------------------------------------------
 
 public:
     // ------------ Constructores ------------
     Phones();
-    Phones(string nameP,int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP);
+    Phones(string nameP,int weightP, int widthP, int heightP, int ramP, double screenSizeP, double priceP);
     // ------------------------------------------
     
     // ------------ Getters ------------ (uno por cada atributo)
@@ -30,7 +30,7 @@ public:
     int getRam();
     double getScreenSize();
     void printPhones();
-    int getPrice();
+    double getPrice();
     string getName();
     // ------------------------------------------
 };
@@ -42,12 +42,12 @@ private:
     int storage;
     int ram;
     int cores;
-    int price;
+    double price;
     string name;
 
 public:
     Computers();
-    Computers(string nameP, string modelNoP, int weightP, int storageP, int ramP, int coresP, int priceP);
+    Computers(string nameP, string modelNoP, int weightP, int storageP, int ramP, int coresP, double priceP);
 
     string getModelNo();
     int getWeight();
@@ -55,7 +55,7 @@ public:
     int getRam();
     int getCores();
     void printComputers();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Tablets
@@ -66,12 +66,12 @@ private:
     int height;
     int ram;
     double screenSize;
-    int price;
+    double price;
     string name;
 
 public:
     Tablets();
-    Tablets(string nameP, int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP);
+    Tablets(string nameP, int weightP, int widthP, int heightP, int ramP, double screenSizeP, double priceP);
 
     int getWeight();
     int getWidth();
@@ -79,7 +79,7 @@ public:
     int getRam();
     double getScreenSize();
     void printTablets();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Cases
@@ -89,18 +89,18 @@ private:
     string forModel;
     string brand;
     string size;
-    int price;
+    double price;
     string name;
 public:
     Cases();
-    Cases(string nameP, string colorP, string forModelP, string brandP, string sizeP, int priceP);
+    Cases(string nameP, string colorP, string forModelP, string brandP, string sizeP, double priceP);
 
     string getColor();
     string getForModel();
     string getBrand();
     string getSize();
     void printCases();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Watches
@@ -110,18 +110,18 @@ private:
     string bandColor;
     int caseSize;
     string brand;
-    int price;
+    double price;
     string name;
 public:
     Watches();
-    Watches(string nameP, string caseColorP, string bandColorP, int caseSizeP, string brandP, int priceP);
+    Watches(string nameP, string caseColorP, string bandColorP, int caseSizeP, string brandP, double priceP);
 
     string getCaseColor();
     string getBandColor();
     int getCaseSize();
     string getBrand();
     void printWatches();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Speakers
@@ -131,18 +131,18 @@ private:
     int loudness;
     string color;
     int driverSize;
-    int price;
+    double price;
     string name;
 public:
     Speakers();
-    Speakers(string nameP, string brandP, int loudnessP, string colorP, int driverSizeP, int priceP);
+    Speakers(string nameP, string brandP, int loudnessP, string colorP, int driverSizeP, double priceP);
 
     string getBrand();
     int getLoudness();
     string getColor();
     int getDriverSize();
     void printSpeakers();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Headphones
@@ -153,11 +153,11 @@ private:
     int loudness;
     string color;
     int driverSize;
-    int price;
+    double price;
     string name;
 public:
     Headphones();
-    Headphones(string nameP, string brandP, string typeP, int loudnessP, string colorP, int driverSizeP, int priceP);
+    Headphones(string nameP, string brandP, string typeP, int loudnessP, string colorP, int driverSizeP, double priceP);
 
     string getBrand();
     string getType();
@@ -165,7 +165,7 @@ public:
     string getColor();
     int getDriverSize();
     void printHeadphones();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class TV
@@ -175,18 +175,18 @@ private:
     float screenSize;
     string panelType;
     bool isSmart;
-    int price;
+    double price;
     string name;
 public:
     TV();
-    TV(string nameP, string brandP, float screenSizeP, string panelTypeP, bool isSmartP, int priceP);
+    TV(string nameP, string brandP, float screenSizeP, string panelTypeP, bool isSmartP, double priceP);
 
     string getBrand();
     float getScreenSize();
     string getPanelType();
     bool getIsSmart();
     void printTV();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Consoles
@@ -196,18 +196,18 @@ private:
     string color;
     int generation;
     int weight;
-    int price;
+    double price;
     string name;
 public:
     Consoles();
-    Consoles(string nameP, string brandP, string colorP, int generationP, int weightP, int priceP);
+    Consoles(string nameP, string brandP, string colorP, int generationP, int weightP, double priceP);
 
     string getBrand();
     string getColor();
     int getGeneration();
     int getWeight();
     void printConsoles();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 class Monitors
@@ -217,18 +217,18 @@ private:
     float screenSize;
     string panelType;
     string mountType;
-    int price;
+    double price;
     string name;
 public:
     Monitors();
-    Monitors(string nameP, string brandP, float screenSizeP, string panelTypeP, string mountTypeP, int priceP);
+    Monitors(string nameP, string brandP, float screenSizeP, string panelTypeP, string mountTypeP, double priceP);
 
     string getBrand();
     float getScreenSize();
     string getPanelType();
     string getMountType();
     void printMonitors();
-    int getPrice();
+    double getPrice();
     string getName();
 };
 // ------------------------------------------
@@ -242,7 +242,7 @@ Phones::Phones()
     ram = -1;
     screenSize = -1.0;
 }
-Phones::Phones(string nameP, int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP)
+Phones::Phones(string nameP, int weightP, int widthP, int heightP, int ramP, double screenSizeP, double priceP)
 {
     weight = weightP;
     width = widthP;
@@ -282,7 +282,7 @@ void Phones::printPhones()
     cout << "RAM: " << getRam() << "\n";
     cout << "Tamaño de pantalla: " << getScreenSize() << "\n";
 }
-int Phones::getPrice()
+double Phones::getPrice()
 {
     return price;
 }
@@ -301,7 +301,7 @@ Computers::Computers()
     ram = -1;
     cores = -1;
 }
-Computers::Computers(string nameP,string modelNoP, int weightP, int storageP, int ramP, int coresP, int priceP)
+Computers::Computers(string nameP,string modelNoP, int weightP, int storageP, int ramP, int coresP, double priceP)
 {
     modelNo = modelNoP;
     weight = weightP;
@@ -340,7 +340,7 @@ void Computers::printComputers()
     cout << "RAM: " << ram << "\n";
     cout << "Cantidad de nucleos del procesador: " << getCores() << "\n";
 }
-int Computers::getPrice()
+double Computers::getPrice()
 {
     return price;
 }
@@ -359,7 +359,7 @@ Tablets::Tablets()
     ram = -1;
     screenSize = -1.0;
 }
-Tablets::Tablets(string nameP, int weightP, int widthP, int heightP, int ramP, double screenSizeP, int priceP)
+Tablets::Tablets(string nameP, int weightP, int widthP, int heightP, int ramP, double screenSizeP, double priceP)
 {
     weight = weightP;
     width = widthP;
@@ -399,7 +399,7 @@ void Tablets::printTablets()
     cout << "RAM: " << getRam() << "\n";
     cout << "Tamaño de pantalla: " << screenSize << "\n";
 }
-int Tablets::getPrice()
+double Tablets::getPrice()
 {
     return price;
 }
@@ -417,7 +417,7 @@ Cases::Cases()
     brand = "n/a";
     size = "n/a";
 }
-Cases::Cases(string nameP, string colorP, string forModelP, string brandP, string sizeP, int priceP)
+Cases::Cases(string nameP, string colorP, string forModelP, string brandP, string sizeP, double priceP)
 {
     color = colorP;
     forModel = forModelP;
@@ -451,7 +451,7 @@ void Cases::printCases()
     cout << "Marca: " << getBrand() << "\n";
     cout << "Tamaño: " << getSize() << "\n";
 }
-int Cases::getPrice()
+double Cases::getPrice()
 {
     return price;
 }
@@ -469,7 +469,7 @@ Watches::Watches()
     caseSize = -1;
     brand = "n/a";
 }
-Watches::Watches(string nameP, string caseColorP, string bandColorP, int caseSizeP, string brandP, int priceP)
+Watches::Watches(string nameP, string caseColorP, string bandColorP, int caseSizeP, string brandP, double priceP)
 {
     caseColor = caseColorP;
     bandColor = bandColorP;
@@ -503,7 +503,7 @@ void Watches::printWatches()
     cout << "Tamaño de la caja: " << getCaseSize() << "\n";
     cout << "Marca: " << getBrand() << "\n";
 }
-int Watches::getPrice()
+double Watches::getPrice()
 {
     return price;
 }
@@ -521,7 +521,7 @@ Speakers::Speakers()
     color = "n/a";
     driverSize = -1;
 }
-Speakers::Speakers(string nameP, string brandP, int loudnessP, string colorP, int driverSizeP, int priceP)
+Speakers::Speakers(string nameP, string brandP, int loudnessP, string colorP, int driverSizeP, double priceP)
 {
     brand = brandP;
     loudness = loudnessP;
@@ -555,7 +555,7 @@ void Speakers::printSpeakers()
     cout << "Color: " << getColor() << "\n";
     cout << "Tamaño del parlante: " << getDriverSize() << "\n";
 }
-int Speakers::getPrice()
+double Speakers::getPrice()
 {
     return price;
 }
@@ -574,7 +574,7 @@ Headphones::Headphones()
     color = "n/a";
     driverSize = -1;
 }
-Headphones::Headphones(string nameP, string brandP, string typeP, int loudnessP, string colorP, int driverSizeP, int priceP)
+Headphones::Headphones(string nameP, string brandP, string typeP, int loudnessP, string colorP, int driverSizeP, double priceP)
 {
     brand = brandP;
     type = typeP;
@@ -614,7 +614,7 @@ void Headphones::printHeadphones()
     cout << "Color: " << getColor() << "\n";
     cout << "Tamaño del parlante: " << getDriverSize() << "\n";
 }
-int Headphones::getPrice()
+double Headphones::getPrice()
 {
     return price;
 }
@@ -632,7 +632,7 @@ TV::TV()
     panelType = "n/a";
     isSmart = false;
 }
-TV::TV(string nameP, string brandP, float screenSizeP, string panelTypeP, bool isSmartP, int priceP)
+TV::TV(string nameP, string brandP, float screenSizeP, string panelTypeP, bool isSmartP, double priceP)
 {
     brand = brandP;
     screenSize = screenSizeP;
@@ -666,7 +666,7 @@ void TV::printTV()
     cout << "Tipo de panel: " << getPanelType() << "\n";
     cout << "¿La televison es inteligente?: " << getIsSmart() << "\n";
 }
-int TV::getPrice()
+double TV::getPrice()
 {
     return price;
 }
@@ -684,7 +684,7 @@ Consoles::Consoles()
     generation = -1;
     weight = -1;
 }
-Consoles::Consoles(string nameP, string brandP, string colorP, int generationP, int weightP, int priceP)
+Consoles::Consoles(string nameP, string brandP, string colorP, int generationP, int weightP, double priceP)
 {
     brand = brandP;
     color = colorP;
@@ -718,7 +718,7 @@ void Consoles::printConsoles()
     cout << "Generación de consola: " << getGeneration() << "\n";
     cout << "Peso: " << getWeight() << "\n";
 }
-int Consoles::getPrice()
+double Consoles::getPrice()
 {
     return price;
 }
@@ -736,7 +736,7 @@ Monitors::Monitors()
     panelType = "n/a";
     mountType = "n/a";
 }
-Monitors::Monitors(string nameP, string brandP, float screenSizeP, string panelTypeP, string mountTypeP, int priceP)
+Monitors::Monitors(string nameP, string brandP, float screenSizeP, string panelTypeP, string mountTypeP, double priceP)
 {
     brand = brandP;
     screenSize = screenSizeP;
@@ -770,7 +770,7 @@ void Monitors::printMonitors()
     cout << "Tipo de pantalla: " << getPanelType() << "\n";
     cout << "Tipo de soporte para pantalla: " << getMountType() << "\n";
 }
-int Monitors::getPrice()
+double Monitors::getPrice()
 {
     return price;
 }
@@ -1315,7 +1315,7 @@ int main()
     return 0;
 }
 
-// Por hacer
+// Por hacer:
 // Cambiar precios de int a "double"
 // Cambiar todos los floats a "double"
 // agregar 2 lineas de sell phone a las otras implementaciones de la clase cliente
