@@ -1034,8 +1034,8 @@ void Store::sellPhone(Client* client)
     client->addToTotalSpent(phoneList[countStockPhones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockPhones--;    // se reduce el stock del producto vendido
 
-    // clientList[countClientsAdded] = cliente;
-    // countClientsAdded++;
+    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // countClientsAdded++; no es necesario hacer una linea nueva para esto
 }
 
 void Store::addComputer(Computers* d)
@@ -1266,14 +1266,17 @@ int main()
     Monitors BenQ_EyeCare_27("BenQ EyeCare 27","BenQ",27,"1080p LCD","VESA", 5999);
     tiendaPablito.addMonitor(&BenQ_EyeCare_27);
 
+    // poner más de 1 cliente
     Client pedrito("Pedrito",1);
+    Client juanito("Juanito",2);
+    
     tiendaPablito.sellPhone(&pedrito);
     tiendaPablito.sellComputer(&pedrito);
-    tiendaPablito.sellCase(&pedrito);
+    tiendaPablito.sellCase(&juanito);
     tiendaPablito.sellWatch(&pedrito);
-    tiendaPablito.sellSpeaker(&pedrito);
+    tiendaPablito.sellSpeaker(&juanito);
     tiendaPablito.sellHeadphone(&pedrito);
-    tiendaPablito.sellTV(&pedrito);
+    tiendaPablito.sellTV(&juanito);
     tiendaPablito.sellConsole(&pedrito);
     tiendaPablito.sellMonitor(&pedrito);
 
