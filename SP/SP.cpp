@@ -172,17 +172,17 @@ class TV
 {
 private:
     string brand;
-    float screenSize;
+    double screenSize;
     string panelType;
     bool isSmart;
     double price;
     string name;
 public:
     TV();
-    TV(string nameP, string brandP, float screenSizeP, string panelTypeP, bool isSmartP, double priceP);
+    TV(string nameP, string brandP, double screenSizeP, string panelTypeP, bool isSmartP, double priceP);
 
     string getBrand();
-    float getScreenSize();
+    double getScreenSize();
     string getPanelType();
     bool getIsSmart();
     void printTV();
@@ -214,17 +214,17 @@ class Monitors
 {
 private:
     string brand;
-    float screenSize;
+    double screenSize;
     string panelType;
     string mountType;
     double price;
     string name;
 public:
     Monitors();
-    Monitors(string nameP, string brandP, float screenSizeP, string panelTypeP, string mountTypeP, double priceP);
+    Monitors(string nameP, string brandP, double screenSizeP, string panelTypeP, string mountTypeP, double priceP);
 
     string getBrand();
-    float getScreenSize();
+    double getScreenSize();
     string getPanelType();
     string getMountType();
     void printMonitors();
@@ -632,7 +632,7 @@ TV::TV()
     panelType = "n/a";
     isSmart = false;
 }
-TV::TV(string nameP, string brandP, float screenSizeP, string panelTypeP, bool isSmartP, double priceP)
+TV::TV(string nameP, string brandP, double screenSizeP, string panelTypeP, bool isSmartP, double priceP)
 {
     brand = brandP;
     screenSize = screenSizeP;
@@ -645,7 +645,7 @@ string TV::getBrand()
 {
     return brand;
 }
-float TV::getScreenSize()
+double TV::getScreenSize()
 {
     return screenSize;
 }
@@ -736,7 +736,7 @@ Monitors::Monitors()
     panelType = "n/a";
     mountType = "n/a";
 }
-Monitors::Monitors(string nameP, string brandP, float screenSizeP, string panelTypeP, string mountTypeP, double priceP)
+Monitors::Monitors(string nameP, string brandP, double screenSizeP, string panelTypeP, string mountTypeP, double priceP)
 {
     brand = brandP;
     screenSize = screenSizeP;
@@ -749,7 +749,7 @@ string Monitors::getBrand()
 {
     return brand;
 }
-float Monitors::getScreenSize()
+double Monitors::getScreenSize()
 {
     return screenSize;
 }
@@ -1070,8 +1070,8 @@ void Store::sellComputer(Client* client)
     client->addToTotalSpent(computerList[countStockComputers-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockComputers--;    // se reduce el stock del producto vendido
 
-    computerList[countStockComputers-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addTablet(Tablets* d)
@@ -1091,8 +1091,8 @@ void Store::sellTablet(Client* client)
     client->addToTotalSpent(tabletList[countStockTablets-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockTablets--;    // se reduce el stock del producto vendido
 
-    tabletList[countStockTablets-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addCase(Cases* d)
@@ -1112,8 +1112,8 @@ void Store::sellCase(Client* client)
     client->addToTotalSpent(caseList[countStockTablets-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockCases--;    // se reduce el stock del producto vendido
 
-    caseList[countStockCases-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addWatch(Watches* d)
@@ -1133,8 +1133,8 @@ void Store::sellWatch(Client* client)
     client->addToTotalSpent(watchList[countStockWatches-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockWatches--;    // se reduce el stock del producto vendido
 
-    watchList[countStockWatches-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addSpeaker(Speakers* d)
@@ -1154,8 +1154,8 @@ void Store::sellSpeaker(Client* client)
     client->addToTotalSpent(watchList[countStockSpeakers-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockSpeakers--;    // se reduce el stock del producto vendido
 
-    speakerList[countStockSpeakers-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addHeadphone(Headphones* d)
@@ -1175,8 +1175,8 @@ void Store::sellHeadphone(Client* client)
     client->addToTotalSpent(headphoneList[countStockHeadphones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockHeadphones--;    // se reduce el stock del producto vendido
 
-    headphoneList[countStockHeadphones-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addTV(TV* d)
@@ -1196,8 +1196,8 @@ void Store::sellTV(Client* client)
     client->addToTotalSpent(tvList[countStockTVs-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockTVs--;    // se reduce el stock del producto vendido
 
-    tvList[countStockTVs-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addConsole(Consoles* d)
@@ -1217,8 +1217,8 @@ void Store::sellConsole(Client* client)
     client->addToTotalSpent(consoleList[countStockConsoles-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockConsoles--;    // se reduce el stock del producto vendido
 
-    consoleList[countStockConsoles-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::addMonitor(Monitors* d)
@@ -1238,8 +1238,8 @@ void Store::sellMonitor(Client* client)
     client->addToTotalSpent(monitorList[countStockMonitors-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockMonitors--;    // se reduce el stock del producto vendido
 
-    monitorList[countStockMonitors-1] = 0; //quito la dirección de la lista
-    clientList[countClientsAdded++] = client; //postincremento directo en la línea;
+    // clientList[countClientsAdded] = cliente;
+    // countClientsAdded++;
 }
 
 void Store::printTotalSales()
@@ -1316,8 +1316,6 @@ int main()
 }
 
 // Por hacer:
-// Cambiar precios de int a "double"
-// Cambiar todos los floats a "double"
 // agregar 2 lineas de sell phone a las otras implementaciones de la clase cliente
 
 // OPCIONAL: Meter un for desde cero hasta sotckPhones imprimir los atributos de cada instancia (línea 931) en caso de hacerlo esto tambien debe estar en un for: phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
