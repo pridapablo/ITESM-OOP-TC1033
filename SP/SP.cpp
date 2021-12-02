@@ -786,6 +786,7 @@ class Client
 private:
     string fullName;
     int clientID;
+    
     int maxSizeList;
     int countBoughtItems;
     string *listBoughtItems;
@@ -1050,6 +1051,7 @@ void Store::sellPhone(Client* client)
     client->addToTotalSpent(phoneList[countStockPhones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockPhones--;    // se reduce el stock del producto vendido
     phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
+
     clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
@@ -1259,7 +1261,7 @@ void Store::printBoughtItems()
         string name = clientList[i]->getFullName();
         double total_spent = clientList[i]->getTotalSpent();
         
-        // cout << name << " gastó $" << total_spent << "\n";
+        cout << name << " gastó $" << total_spent << "\n";
     }
     
 }
