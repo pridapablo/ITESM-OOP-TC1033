@@ -100,6 +100,7 @@ public:
     int getContadorDesinfectanteEnStock();
     void venderDesinfectante(Cliente* cliente);
 };
+
 Tienda::Tienda(){}
 Tienda::Tienda(int minStockP)
 {
