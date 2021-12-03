@@ -1,3 +1,6 @@
+// Por hacer:
+// Arreglar contadores
+
 # include <iostream>
 # include <string>
 using namespace std;
@@ -797,6 +800,7 @@ public:
     int getClientID();
     double getTotalSpent();
     void addToTotalSpent(double totalSpentP);
+    string* getBoughtItems();
     void addBoughtItems(string nombreProductoP);
 };
 
@@ -825,10 +829,14 @@ void Client::addToTotalSpent(double totalSpentP)
 {
     totalSpent += totalSpentP;
 }
+string* Client::getBoughtItems()
+{
+    return listBoughtItems;
+}
 void Client::addBoughtItems(string nombreProductoP)
 {
-    // No dado
-    ;
+    listBoughtItems[countBoughtItems] = nombreProductoP;
+    countBoughtItems++;
 }
 // ------------------------------------------
 
@@ -1278,8 +1286,9 @@ void Store::printBoughtItems()
     {
         string name = clientList[i]->getFullName();
         double total_spent = clientList[i]->getTotalSpent();
+        string* items = clientList[i]->getBoughtItems();
         
-        cout << name << " gastó $" << total_spent << "\n";
+        cout << name << " gastó $" << total_spent << " en " << *items << "\n";
     }
 }
 // ------------------------------------------
@@ -1354,11 +1363,5 @@ int main()
     // Total de productos vendidos
     tiendaPablito.printTotalSales();
     cout << "----------------------------------------------------------\n";
-    
-
-
     return 0;
 }
-
-// Por hacer:
-// Arreglar contadores
