@@ -137,6 +137,8 @@ void Tienda::venderDesinfectante(Cliente* cliente)
     cliente->agregarProductoComprado(listaDesinfectantes[contadorDesinfectantesEnStock-1]->getNombre());  //Se agrega al Cliente la info de lo que compró
     cliente->incrementarTotalGastado(listaDesinfectantes[contadorDesinfectantesEnStock-1]->getPrecio());  //Se agrega al Cliente la info de lo que compró
     contadorDesinfectantesEnStock--;    // se reduce el stock del producto vendido
+
+    
 }
 
 int main()

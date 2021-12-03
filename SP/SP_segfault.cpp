@@ -786,13 +786,15 @@ class Client
 private:
     string fullName;
     int clientID;
+    
     int maxSizeList;
     int countBoughtItems;
-    string* listBoughtItems;
+    string *listBoughtItems;
     double totalSpent;
     Client();
 public:
     Client(string fullNameP, int clientIDP);
+    ~Client();
     string getFullName();
     int getClientID();
     double getTotalSpent();
@@ -808,6 +810,10 @@ Client::Client(string fullNameP, int clientIDP)
     maxSizeList = 10;
     countBoughtItems = 0;
     listBoughtItems = new string[maxSizeList];
+}
+Client::~Client()
+{
+    delete [] listBoughtItems;
 }
 string Client::getFullName()
 {
@@ -827,8 +833,8 @@ void Client::addToTotalSpent(double totalSpentP)
 }
 void Client::addBoughtItems(string nombreProductoP)
 {
-    // No dado
-    ;
+    //listBoughtItems[countBoughtItems] = nombreProductoP;
+    countBoughtItems++;
 }
 // ------------------------------------------
 
@@ -838,6 +844,7 @@ class Store
 private:
     int minStock;
     Client** clientList;
+
     int countClientsAdded;
     int maxSizeClientList;
 
@@ -973,6 +980,7 @@ Store::~Store()
     delete [] tvList;
     delete [] consoleList;
     delete [] monitorList;
+    delete [] clientList;
 }
 void Store::listProducts()
 {
@@ -1048,7 +1056,6 @@ void Store::sellPhone(Client* client)
     client->addBoughtItems(phoneList[countStockPhones-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(phoneList[countStockPhones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockPhones--;    // se reduce el stock del producto vendido
-
     // phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
     clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
@@ -1070,8 +1077,8 @@ void Store::sellComputer(Client* client)
     client->addBoughtItems(computerList[countStockComputers-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(computerList[countStockComputers-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockComputers--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // computerList[countStockComputers-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded++] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1091,8 +1098,8 @@ void Store::sellTablet(Client* client)
     client->addBoughtItems(tabletList[countStockTablets-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(tabletList[countStockTablets-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockTablets--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // tabletList[countStockTablets-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1112,8 +1119,8 @@ void Store::sellCase(Client* client)
     client->addBoughtItems(caseList[countStockCases-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(caseList[countStockCases-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockCases--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // caseList[countStockCases-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1133,8 +1140,8 @@ void Store::sellWatch(Client* client)
     client->addBoughtItems(watchList[countStockWatches-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(watchList[countStockWatches-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockWatches--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // watchList[countStockWatches-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1154,8 +1161,8 @@ void Store::sellSpeaker(Client* client)
     client->addBoughtItems(speakerList[countStockSpeakers-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(speakerList[countStockSpeakers-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockSpeakers--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // speakerList[countStockSpeakers-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1175,8 +1182,8 @@ void Store::sellHeadphone(Client* client)
     client->addBoughtItems(headphoneList[countStockHeadphones-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(headphoneList[countStockHeadphones-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockHeadphones--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // headphoneList[countStockHeadphones-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1196,8 +1203,8 @@ void Store::sellTV(Client* client)
     client->addBoughtItems(tvList[countStockTVs-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(tvList[countStockTVs-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockTVs--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // tvList[countStockTVs-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1217,8 +1224,8 @@ void Store::sellConsole(Client* client)
     client->addBoughtItems(consoleList[countStockConsoles-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(consoleList[countStockConsoles-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockConsoles--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // consoleList[countStockConsoles-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
@@ -1238,18 +1245,21 @@ void Store::sellMonitor(Client* client)
     client->addBoughtItems(monitorList[countStockMonitors-1]->getName());  //Se agrega al Cliente la info de lo que compró
     client->addToTotalSpent(monitorList[countStockMonitors-1]->getPrice());  //Se agrega al Cliente la info de lo que compró
     countStockMonitors--;    // se reduce el stock del producto vendido
-
-    clientList[countClientsAdded] = client;
+    // monitorList[countStockMonitors-1] = 0; //quito la dirección de la lista
+    clientList[countClientsAdded] = client; //postincremento directo en la línea
     countClientsAdded++;
 }
 
 void Store::printTotalSales()
-{
+{    
     double totalSales = 0;
-    for (int i = 0; i < countClientsAdded; i++)
+    cout << countClientsAdded << endl;
+    
+    for (int i = countClientsAdded - 1; i > 0; i--)
     {
         totalSales += clientList[i]->getTotalSpent();
     }
+
     cout << "El total vendido fue: $" << totalSales << "\n";
 }
 void Store::printBoughtItems()
@@ -1261,6 +1271,7 @@ void Store::printBoughtItems()
         
         cout << name << " gastó $" << total_spent << "\n";
     }
+    
 }
 // ------------------------------------------
 
@@ -1273,7 +1284,7 @@ int main()
     Phones iPhone_13("iPhone 13",300, 2532, 1170, 4, 6.1, 23000);
     tiendaPablito.addPhone(&iPhone_13);
 
-    Computers MacBook_Air("MacBook Air","A1932", 2000, 128, 8, 2, 32000);
+    Computers MacBook_Air("MacBook Air","A1932", 2000, 128, 8, 2, 320000);
     tiendaPablito.addComputer(&MacBook_Air);
 
     Tablets iPad_8("iPad 8",300,23,22,3,9.1,10000);
@@ -1294,10 +1305,10 @@ int main()
     TV Sony_Bravia_50("Sony Bravia 50","Sony",50,"4k LCD",true, 20000);
     tiendaPablito.addTV(&Sony_Bravia_50);
     
-    Consoles Xbox_One_X("Xbox One X","Microsoft - Xbox","Black",4,2000, 7000);
+    Consoles Xbox_One_X("Xbox One X","Microsoft - Xbox","Black",4,2000, 7399);
     tiendaPablito.addConsole(&Xbox_One_X);
     
-    Monitors BenQ_EyeCare_27("BenQ EyeCare 27","BenQ",27,"1080p LCD","VESA", 6000);
+    Monitors BenQ_EyeCare_27("BenQ EyeCare 27","BenQ",27,"1080p LCD","VESA", 5999);
     tiendaPablito.addMonitor(&BenQ_EyeCare_27);
 
     // poner más de 1 cliente
@@ -1327,9 +1338,6 @@ int main()
 }
 
 // Por hacer:
-// Cambiar precios de int a "double"
-// agregar 2 lineas de sell phone a las otras implementaciones de la clase cliente
-
-// OPCIONAL: Meter un for desde cero hasta sotckPhones imprimir los atributos de cada instancia (línea 931) en caso de hacerlo esto tambien debe estar en un for: phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
-
-// Duda 1: como hacer lo de poner un total de lo que va a pagar un cliente que entra a la tienda
+// ARREGLAR ERROR DE SEGMENTACIÓN en las ventas de la lista de clientes... ni idea que onda
+// ARREGLAR LOOP DEL MÉTODO printBoughtItems()... debería solo imprimir 2 clientes pero imprime 5 ¿Por qué el contador es = 5 cuando solo agregué a 2 clientes?
+// Ver si se deben de quitar los if's del método listProducts() y arreglar el hecho de que al vender un producto deje de imprimirse (ver como eliminarlo de la lista)
