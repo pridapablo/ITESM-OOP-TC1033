@@ -1278,13 +1278,16 @@ void Store::printBoughtItems()
 
 int main()
 {
+    cout << "----------------------------------------------------------\n";
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
     Store tiendaPablito(5);
+
+    cout << "-------------------- Ventas de hoy----------------------- \n";
 
     Phones iPhone_13("iPhone 13",300, 2532, 1170, 4, 6.1, 23000);
     tiendaPablito.addPhone(&iPhone_13);
 
-    Computers MacBook_Air("MacBook Air","A1932", 2000, 128, 8, 2, 320000);
+    Computers MacBook_Air("MacBook Air","A1932", 2000, 128, 8, 2, 32000);
     tiendaPablito.addComputer(&MacBook_Air);
 
     Tablets iPad_8("iPad 8",300,23,22,3,9.1,10000);
@@ -1305,10 +1308,10 @@ int main()
     TV Sony_Bravia_50("Sony Bravia 50","Sony",50,"4k LCD",true, 20000);
     tiendaPablito.addTV(&Sony_Bravia_50);
     
-    Consoles Xbox_One_X("Xbox One X","Microsoft - Xbox","Black",4,2000, 7399);
+    Consoles Xbox_One_X("Xbox One X","Microsoft - Xbox","Black",4,2000, 7000);
     tiendaPablito.addConsole(&Xbox_One_X);
     
-    Monitors BenQ_EyeCare_27("BenQ EyeCare 27","BenQ",27,"1080p LCD","VESA", 5999);
+    Monitors BenQ_EyeCare_27("BenQ EyeCare 27","BenQ",27,"1080p LCD","VESA", 6000);
     tiendaPablito.addMonitor(&BenQ_EyeCare_27);
 
     // poner más de 1 cliente
@@ -1325,14 +1328,21 @@ int main()
     tiendaPablito.sellConsole(&pedrito);
     tiendaPablito.sellMonitor(&pedrito);
 
+    cout << "----------------- Pago por cliente -----------------------\n";
+    // Clientes a los que se le vendió y cuanto se les vendió
+    tiendaPablito.printBoughtItems();
+
+    cout << "---------- Stock de productos al cierre de caja ----------\n";
     // Lista de productos
     tiendaPablito.listProducts();
 
+    cout << "-------------------- Ganancia del dia --------------------\n";
     // Total de productos vendidos
     tiendaPablito.printTotalSales();
+    cout << "----------------------------------------------------------\n";
     
-    // Clientes a los que se le vendió y cuanto se les vendió
-    tiendaPablito.printBoughtItems();
+    
+
 
     return 0;
 }

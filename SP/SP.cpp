@@ -979,52 +979,72 @@ void Store::listProducts()
     cout << "Total de telefonos en stock: " << countStockPhones << "\n";
     if (countStockPhones != 0)
     {
+        cout << "**********************************************************\n";
         phoneList[0]->printPhones();
+        cout << "**********************************************************\n";
     }
     cout << "Total de computadoras en stock: " << countStockComputers << "\n";
     if (countStockComputers != 0)
-    {
+    {   
+        cout << "**********************************************************\n";
         computerList[0]->printComputers();
+        cout << "**********************************************************\n";
     }
     cout << "Total de tabletas en stock: " << countStockTablets << "\n";
     if (countStockTablets != 0)
     {
+        cout << "**********************************************************\n";
         tabletList[0]->printTablets();
+        cout << "**********************************************************\n";
     }
     cout << "Total de fundas en stock: " << countStockCases << "\n";
     if (countStockCases != 0)
     {
+        cout << "**********************************************************\n";
         caseList[0]->printCases();
+        cout << "**********************************************************\n";
     }
     cout << "Total de relojes en stock: " << countStockWatches << "\n";
     if (countStockWatches != 0)
     {
+        cout << "**********************************************************\n";
         watchList[0]->printWatches();
+        cout << "**********************************************************\n";
     }
     cout << "Total de bocinas en stock: " << countStockSpeakers << "\n";
     if (countStockSpeakers != 0)
     {
+        cout << "**********************************************************\n";
         speakerList[0]->printSpeakers();
+        cout << "**********************************************************\n";
     }
     cout << "Total de audifonos en stock: " << countStockHeadphones << "\n";
     if (countStockHeadphones != 0)
     {
+        cout << "**********************************************************\n";
         headphoneList[0]->printHeadphones();
+        cout << "**********************************************************\n";
     }
     cout << "Total de televisiones en stock: " << countStockTVs << "\n";
     if (countStockTVs != 0)
     {
+        cout << "**********************************************************\n";
         tvList[0]->printTV();
+        cout << "**********************************************************\n";
     }
     cout << "Total de consolas en stock: " << countStockConsoles << "\n";
     if (countStockConsoles != 0)
     {
+        cout << "**********************************************************\n";
         consoleList[0]->printConsoles();
+        cout << "**********************************************************\n";
     }
     cout << "Total de monitores en stock: " << countStockMonitors << "\n";
     if (countStockMonitors != 0)
     {
+        cout << "**********************************************************\n";
         monitorList[0]->printMonitors();
+        cout << "**********************************************************\n";
     }
 }
 int Store::getMinStock()
@@ -1267,8 +1287,13 @@ void Store::printBoughtItems()
 
 int main()
 {
+    cout << "----------------------------------------------------------\n";
     cout << "Bienvenid@ al changarro de Pablo Banzo Prida - A01782031 \n";
+    cout << "----------------------------------------------------------\n\n";
+
     Store tiendaPablito(5);
+
+    cout << "-------------------- Ventas de hoy ---------------------- \n";
 
     Phones iPhone_13("iPhone 13",300, 2532, 1170, 4, 6.1, 23000);
     tiendaPablito.addPhone(&iPhone_13);
@@ -1313,23 +1338,27 @@ int main()
     tiendaPablito.sellTV(&juanito);
     tiendaPablito.sellConsole(&pedrito);
     tiendaPablito.sellMonitor(&pedrito);
+    cout << "----------------------------------------------------------\n";
 
-    // Lista de productos
-    tiendaPablito.listProducts();
-
-    // Total de productos vendidos
-    tiendaPablito.printTotalSales();
-    
+    cout << "\n------------------- Pago por cliente --------------------\n";
     // Clientes a los que se le vendió y cuanto se les vendió
     tiendaPablito.printBoughtItems();
+    cout << "----------------------------------------------------------\n";
+
+    cout << "\n----------------- Inventario al cierre ------------------\n";
+    // Lista de productos
+    tiendaPablito.listProducts();
+    cout << "----------------------------------------------------------\n";
+
+    cout << "\n-------------------- Ganancia del día --------------------\n";
+    // Total de productos vendidos
+    tiendaPablito.printTotalSales();
+    cout << "----------------------------------------------------------\n";
+    
+
 
     return 0;
 }
 
 // Por hacer:
-// Cambiar precios de int a "double"
-// agregar 2 lineas de sell phone a las otras implementaciones de la clase cliente
-
-// OPCIONAL: Meter un for desde cero hasta sotckPhones imprimir los atributos de cada instancia (línea 931) en caso de hacerlo esto tambien debe estar en un for: phoneList[countStockPhones-1] = 0; //quito la dirección de la lista
-
-// Duda 1: como hacer lo de poner un total de lo que va a pagar un cliente que entra a la tienda
+// Arreglar contadores
