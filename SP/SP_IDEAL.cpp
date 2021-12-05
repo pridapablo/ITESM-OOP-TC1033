@@ -800,13 +800,14 @@ public:
     int getClientID();
     double getTotalSpent();
     void addToTotalSpent(double totalSpentP);
-    string* getBoughtItems();
     void addBoughtItems(string nombreProductoP);
+    int getCountBought();
 };
 
 Client::Client(){}
 Client::Client(string fullNameP, int clientIDP)
 {
+    totalSpent = 0;
     fullName = fullNameP;
     clientID = clientIDP;
     maxSizeList = 10;
@@ -829,9 +830,9 @@ void Client::addToTotalSpent(double totalSpentP)
 {
     totalSpent += totalSpentP;
 }
-string* Client::getBoughtItems()
+int Client::getCountBought()
 {
-    return listBoughtItems;
+    return countBoughtItems;
 }
 void Client::addBoughtItems(string nombreProductoP)
 {
@@ -1274,21 +1275,39 @@ void Store::sellMonitor(Client* client)
 void Store::printTotalSales()
 {
     double totalSales = 0;
+    int unique_clients = 0;
+    int in = -1;
+
     for (int i = 0; i < countClientsAdded; i++)
     {
-        totalSales += clientList[i]->getTotalSpent();
+        if(clientList[i] != clientList[i-1])
+        {
+            unique_clients++;
+            in = i;
+
+            totalSales += clientList[in]->getTotalSpent();
+        }
     }
+
     cout << "El total vendido fue: $" << totalSales << "\n";
 }
 void Store::printBoughtItems()
 {
+    int unique_clients = 0;
+    int in = -1;
+
     for (int i = 0; i < countClientsAdded; i++)
     {
-        string name = clientList[i]->getFullName();
-        double total_spent = clientList[i]->getTotalSpent();
-        string* items = clientList[i]->getBoughtItems();
-        
-        cout << name << " gastó $" << total_spent << " en " << *items << "\n";
+        if(clientList[i] != clientList[i-1])
+        {
+            unique_clients++;
+            in = i;
+
+            string name = clientList[in]->getFullName(); // hacer un if para que solo se imprima el cliente una vez (porque el contador ya es el total sumado del cliente)
+            double total_spent = clientList[in]->getTotalSpent(); //meter esto también en el if
+
+            cout << name << " gastó $" << total_spent << "\n";   
+        }
     }
 }
 // ------------------------------------------
@@ -1340,13 +1359,14 @@ int main()
     
     tiendaPablito.sellPhone(&pedrito);
     tiendaPablito.sellComputer(&pedrito);
-    tiendaPablito.sellCase(&juanito);
-    tiendaPablito.sellWatch(&pedrito);
-    tiendaPablito.sellSpeaker(&juanito);
-    tiendaPablito.sellHeadphone(&pedrito);
-    tiendaPablito.sellTV(&juanito);
     tiendaPablito.sellConsole(&pedrito);
     tiendaPablito.sellMonitor(&pedrito);
+    tiendaPablito.sellWatch(&pedrito);
+    tiendaPablito.sellHeadphone(&pedrito);
+    tiendaPablito.sellSpeaker(&juanito);
+    tiendaPablito.sellTV(&juanito);
+    tiendaPablito.sellCase(&juanito);
+    
     cout << "----------------------------------------------------------\n";
 
     cout << "\n------------------- Pago por cliente --------------------\n";
